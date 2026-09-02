@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "currency": "USD",
+  "source": "Poject files/menu.pdf",
+  "isProvisional": true,
+  "menuType": "catering",
+  "publicationStatus": "draft",
+  "categories": [
+    {
+      "id": "starters",
+      "name": "Starters",
+      "description": "Appetizers and starters.",
+      "sortOrder": 1,
+      "items": [
+        { "id": "mexican-corn-chaat", "name": "Mexican Corn Chaat", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 1, "needsReview": true, "sourcePage": 1 },
+        { "id": "falafal-sliders", "name": "Falafal Sliders", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 2, "needsReview": true, "sourcePage": 1 },
+        { "id": "panner-lollipops", "name": "Panner lollipops", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 3, "needsReview": true, "sourcePage": 1 },
+        { "id": "5-layer-chaat", "name": "5 layer Chaat", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 4, "needsReview": true, "sourcePage": 1 },
+        { "id": "khandvi", "name": "Khandvi", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 5, "needsReview": true, "sourcePage": 1 },
+        { "id": "tandori-stick-veggies-paneer", "name": "Tandori Stick (Veggies, paneer)", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 6, "needsReview": true, "sourcePage": 1 },
+        { "id": "sabudana-pops", "name": "Sabudana Pops", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 7, "needsReview": true, "sourcePage": 1 },
+        { "id": "spicy-bombay-tatos", "name": "Spicy Bombay Tatos", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 8, "needsReview": true, "sourcePage": 1 },
+        { "id": "mini-samosa", "name": "Mini Samosa", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 9, "needsReview": true, "sourcePage": 1 },
+        { "id": "cauliflower-tikki-bites", "name": "Cauliflower Tikki Bites", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 10, "needsReview": true, "sourcePage": 1 },
+        { "id": "naan-pizza", "name": "Naan Pizza", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 11, "needsReview": true, "sourcePage": 1 },
+        { "id": "cheesy-jalapeno-poppers", "name": "Cheesy Jalapeño Poppers", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 12, "needsReview": true, "sourcePage": 1 },
+        { "id": "chilli-garlic-pops", "name": "Chilli Garlic Pops", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 13, "needsReview": true, "sourcePage": 1 }
+      ]
+    },
+    {
+      "id": "chaatcuterie-board",
+      "name": "Chaatcuterie Board",
+      "description": "Assorted chaat components.",
+      "sortOrder": 2,
+      "items": [
+        { "id": "samosa", "name": "Samosa", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 1, "needsReview": true, "sourcePage": 2 },
+        { "id": "papdi-chaat", "name": "Papdi Chaat", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 2, "needsReview": true, "sourcePage": 2 },
+        { "id": "indian-fritters", "name": "Indian Fritters", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 3, "needsReview": true, "sourcePage": 2 },
+        { "id": "cauliflower-fritter", "name": "Cauliflower Fritter", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 4, "needsReview": true, "sourcePage": 2 },
+        { "id": "green-chutney", "name": "Green Chutney", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 5, "needsReview": true, "sourcePage": 2 },
+        { "id": "tamarind-sweet-chutney", "name": "Tamarind/Sweet Chutney", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 6, "needsReview": true, "sourcePage": 2 },
+        { "id": "namkeen-board", "name": "Namkeen Board", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 7, "needsReview": true, "sourcePage": 2 },
+        { "id": "aloo-tikki-chaat", "name": "Aloo Tikki Chaat", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 8, "needsReview": true, "sourcePage": 2 },
+        { "id": "samosa-chaat", "name": "Samosa Chaat", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 9, "needsReview": true, "sourcePage": 2 }
+      ]
+    },
+    {
+      "id": "chai-station",
+      "name": "Chai Station",
+      "description": "Flavors: Regular and Masala Available. *MINIMUM 20 CUPS ORDER",
+      "sortOrder": 3,
+      "items": [
+        { "id": "regular-chai", "name": "Regular Chai", "description": "Regular or Masala flavor", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 1, "needsReview": true, "sourcePage": 2 },
+        { "id": "vegan-chai", "name": "Vegan Chai", "description": "Regular or Masala flavor", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": ["vegan"], "spicy": false, "allergens": [], "available": true, "sortOrder": 2, "needsReview": true, "sourcePage": 2 }
+      ]
+    },
+    {
+      "id": "live-carts",
+      "name": "Live Carts",
+      "description": "Live food stations.",
+      "sortOrder": 4,
+      "items": [
+        { "id": "live-pani-puri-cart", "name": "Live Pani Puri Cart", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 1, "needsReview": true, "sourcePage": 4 },
+        { "id": "live-dosa-cart", "name": "Live Dosa Cart", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 2, "needsReview": true, "sourcePage": 4 },
+        { "id": "live-uttapam", "name": "Live Uttapam", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 3, "needsReview": true, "sourcePage": 4 },
+        { "id": "live-vadapav", "name": "Live Vadapav", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 4, "needsReview": true, "sourcePage": 4 },
+        { "id": "live-pav-bhaji", "name": "Live Pav Bhaji", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 5, "needsReview": true, "sourcePage": 4 },
+        { "id": "live-bhel-puri", "name": "Live Bhel Puri", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 6, "needsReview": true, "sourcePage": 4 },
+        { "id": "live-paan-stand", "name": "Live Paan Stand", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 7, "needsReview": true, "sourcePage": 4 }
+      ]
+    },
+    {
+      "id": "salad-stand",
+      "name": "Salad Stand",
+      "description": "Fresh salads.",
+      "sortOrder": 5,
+      "items": [
+        { "id": "avocado-salad", "name": "Avocado Salad", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 1, "needsReview": true, "sourcePage": 4 },
+        { "id": "sprouted-moong-chaat-in-cones", "name": "Sprouted Moong Chaat in Cones", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 2, "needsReview": true, "sourcePage": 4 },
+        { "id": "baby-corn-paneer-satay", "name": "Baby corn Paneer Satay", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 3, "needsReview": true, "sourcePage": 4 },
+        { "id": "aloo-panner-nest", "name": "Aloo Panner Nest", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 4, "needsReview": true, "sourcePage": 4 }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "description": "Sweet treats. If you have any special requests, kindly let us know. For quote, give us a call at 626-383-6705.",
+      "sortOrder": 6,
+      "items": [
+        { "id": "rasgulla", "name": "Rasgulla", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 1, "needsReview": true, "sourcePage": 6 },
+        { "id": "gulab-jamun-in-kunafa-nests", "name": "Gulab jamun in Kunafa Nests", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 2, "needsReview": true, "sourcePage": 6 },
+        { "id": "rabdi-in-kulhad", "name": "Rabdi in Kulhad", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 3, "needsReview": true, "sourcePage": 6 },
+        { "id": "carrot-halwa", "name": "Carrot Halwa", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 4, "needsReview": true, "sourcePage": 6 },
+        { "id": "custard-gulab-jamun", "name": "Custard Gulab Jamun", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 5, "needsReview": true, "sourcePage": 6 },
+        { "id": "fruit-custard", "name": "Fruit Custard", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 6, "needsReview": true, "sourcePage": 6 },
+        { "id": "mango-panna-cotta", "name": "Mango Panna Cotta", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 7, "needsReview": true, "sourcePage": 6 },
+        { "id": "seviyaan-kheer", "name": "Seviyaan Kheer", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 8, "needsReview": true, "sourcePage": 6 },
+        { "id": "motichoor-ladooo-with-cheese-cake-shots", "name": "Motichoor Ladooo with Cheese Cake Shots", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 9, "needsReview": true, "sourcePage": 6 },
+        { "id": "rasmalai-tiramisu", "name": "Rasmalai Tiramisu", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 10, "needsReview": true, "sourcePage": 6 },
+        { "id": "pineapple-basundi", "name": "Pineapple Basundi", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 11, "needsReview": true, "sourcePage": 6 },
+        { "id": "gulkand-phirni", "name": "GULKAND Phirni", "description": "", "basePriceCents": null, "priceStatus": "not-provided", "image": null, "dietary": [], "spicy": false, "allergens": [], "available": true, "sortOrder": 12, "needsReview": true, "sourcePage": 6 }
+      ]
+    }
+  ]
+}
