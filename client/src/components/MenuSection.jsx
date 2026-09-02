@@ -1,9 +1,9 @@
 import React from 'react';
 import MenuItemCard from './MenuItemCard';
 
-const MenuSection = ({ category, items }) => {
+const MenuSection = ({ id, category, items }) => {
   return (
-    <section className="mb-10">
+    <section id={id} className="mb-10 scroll-mt-[135px] sm:scroll-mt-[150px]">
       <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-brand-saffron">
         {category}
       </h2>

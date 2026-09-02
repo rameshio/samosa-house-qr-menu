@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-02 Phase 8
+- **Phase**: 8
+- **Description**: Implemented mobile-first sticky category navigation that syncs with page scroll.
+- **Milestones**:
+  - Created `CategoryNavigation` component displaying horizontal category tabs.
+  - Developed custom hook `useCategoryScroll` for IntersectionObserver scroll-spy logic.
+  - Configured graceful fallbacks for reduced-motion and missing observer support.
+  - Implemented anchor routing via ID tags and adjusted scroll margins to respect sticky header boundaries.
+- **Files Affected**: `client/src/components/CategoryNavigation.jsx`, `client/src/components/MenuSection.jsx`, `client/src/pages/MenuPage.jsx`, `client/src/hooks/useCategoryScroll.js`, `client/tests/CategoryNavigation.test.jsx`.
+- **Reason**: Enhancing user experience for rapid menu traversal.
+- **Verification**: Fully tested observer callbacks, reduced motion paths, routing assertions, and accessibility bounds. All 42 client tests passing.
 ## 2026-09-02 Phase 7.5
 - **Phase**: 7.5
 - **Description**: Integrated the approved 3-second animated welcome MP4, the validated logo PNG, and safely mapped the confirmed web-optimized menu images.

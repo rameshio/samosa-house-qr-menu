@@ -9,6 +9,7 @@
 │   ├── src/
 │   │   ├── assets/     # Imported static images and icons
 │   │   ├── components/ # Reusable React components (e.g. MenuItemCard)
+│   │   ├── hooks/      # Custom React hooks (e.g. useCategoryScroll.js)
 │   │   ├── pages/      # Page-level components
 │   │   ├── services/   # API fetching services (e.g. menuService.js)
 │   │   ├── utils/      # Utility helpers (e.g. formatters.js)

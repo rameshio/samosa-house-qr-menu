@@ -20,4 +20,5 @@
 - **Phase 5**: Logo Intro two-second animation and overlay functionality manually verified.
 - **Phase 6**: Mobile and desktop layout, component behavior, missing images, and unavailable items manually verified.
 - **Phase 7**: Backend API integration, null price strictness, and Wix restaurant menu swap completed (manual testing pending).
-- **Phase 7.5**: Asset Integration Pass integrating MP4 welcome video, validated menu images, and PNG logo (Video-playback correction implemented — manual retesting pending).
+- **Phase 7.5**: Asset Integration Pass integrating MP4 welcome video, validated menu images, and PNG logo.
+- **Phase 8**: Category Navigation and Sticky Menu Controls implemented and verified manually.

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import LocationDisplay from '../components/LocationDisplay';
+import CategoryNavigation from '../components/CategoryNavigation';
 import MenuSection from '../components/MenuSection';
 import Footer from '../components/Footer';
 import DevelopmentStatus from '../components/DevelopmentStatus';
+import LogoIntro from '../components/LogoIntro';
 import { fetchMenu } from '../services/menuService';
+import { useCategoryScroll } from '../hooks/useCategoryScroll';
 
 const MenuPage = () => {
   const [menuData, setMenuData] = useState(null);
@@ -28,11 +31,26 @@ const MenuPage = () => {
     loadMenu();
   }, []);
 
+  const { activeCategoryId, handleCategoryClick } = useCategoryScroll(
+    menuData?.categories,
+    loading,
+    error
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
+      <LogoIntro />
       <Header />
       <LocationDisplay location="Culver City" />
       
+      {!loading && !error && menuData?.categories?.length > 0 && (
+        <CategoryNavigation 
+          categories={menuData.categories}
+          activeCategoryId={activeCategoryId}
+          onCategoryClick={handleCategoryClick}
+        />
+      )}
+
       <main className="flex-grow w-full max-w-4xl mx-auto px-4 py-8 sm:px-6">
         <div className="mb-8 text-center sm:text-left">
           <h1 className="text-3xl font-extrabold text-gray-900 mb-2">
@@ -75,7 +93,12 @@ const MenuPage = () => {
         )}
 
         {!loading && !error && menuData?.categories?.map(section => (
-          <MenuSection key={section.id} category={section.name} items={section.items} />
+          <MenuSection 
+            key={section.id} 
+            id={`category-${section.id}`} 
+            category={section.name} 
+            items={section.items} 
+          />
         ))}
       </main>
 

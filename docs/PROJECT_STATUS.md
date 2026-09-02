@@ -11,8 +11,8 @@
 - [x] Phase 5: Two-second logo intro
 - [x] Phase 6: Basic mobile menu layout
 - [x] Phase 7: Menu API and JSON data
-- [ ] Phase 7.5: Asset Integration Pass (Video-playback correction implemented — manual retesting pending)
-- [ ] Phase 8: Categories and sticky navigation
+- [x] Phase 7.5: Asset Integration Pass
+- [ ] Phase 8: Categories and sticky navigation (Implementation complete — manual testing pending)
 - [ ] Phase 9: Search and dietary filters
 - [ ] Phase 10: Location-specific menus
 - [ ] Phase 11: Location-specific QR routes
