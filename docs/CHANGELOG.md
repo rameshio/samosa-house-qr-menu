@@ -130,3 +130,11 @@
 
 ### Added
 - Created `MAINTENANCE_GUIDE.md` to document the project architecture, data flow, safe Git workflows, and common troubleshooting steps for beginners.
+
+### Fixed
+- Fixed an issue where the menu flashed visibly before the welcome video started playing on the first visit. The intro gate now blocks the screen synchronously on mount, and gracefully reveals the video only once buffering completes.
+
+### Changed
+- Updated the mobile menu-card layout to display two cards per row (instead of full width). Cards were restructured to vertically stack the image, name, and price. Names are permitted to wrap up to two lines on narrower viewports.
+- Fixed an issue where the first category (Appetizers) appeared hidden or disabled on initial load after a refresh without scrolling. Corrected the active category initialization in \useCategoryScroll\ to correctly synchronously derive state, and separated the gooey background layer from the foreground interactive text layer in \CategoryNavigation\.
+- Added an interactive mesh-gradient hover border to menu item cards on desktop. Adapted from provided code to ensure accessibility, strictly pausing animation when inactive, and providing a static fallback border on mobile devices to preserve scrolling performance.

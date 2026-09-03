@@ -8,20 +8,33 @@ export const useCategoryScroll = (categories, loading, error) => {
   const isClickScrolling = useRef(false);
   const initialLoadDone = useRef(false);
 
+  // 1. Synchronously initialize active category on first valid render
+  let currentActiveId = activeCategoryId;
+  if (!currentActiveId && categories && categories.length > 0) {
+    const hash = typeof window !== 'undefined' ? window.location.hash : '';
+    let initialId = categories[0].id;
+    if (hash && hash.startsWith('#category-')) {
+      const id = hash.replace('#category-', '');
+      if (categories.some(c => c.id === id)) {
+        initialId = id;
+      }
+    }
+    currentActiveId = initialId;
+  }
+
   useEffect(() => {
     if (loading || error || !categories || categories.length === 0) return;
 
     if (!initialLoadDone.current) {
       initialLoadDone.current = true;
+      setActiveCategoryId(currentActiveId);
+      
       const hash = window.location.hash;
-      let initialId = categories[0].id;
-
       if (hash && hash.startsWith('#category-')) {
         const id = hash.replace('#category-', '');
         if (categories.some(c => c.id === id)) {
-          initialId = id;
           setTimeout(() => {
-            const section = document.getElementById(hash.substring(1));
+            const section = document.getElementById(`category-${id}`);
             if (section) {
               const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
               try {
@@ -33,8 +46,6 @@ export const useCategoryScroll = (categories, loading, error) => {
           }, 100);
         }
       }
-      setActiveCategoryId(initialId);
-      activeIdRef.current = initialId;
     }
 
     if (typeof IntersectionObserver !== 'undefined') {
@@ -75,7 +86,7 @@ export const useCategoryScroll = (categories, loading, error) => {
         observerRef.current.disconnect();
       }
     };
-  }, [categories, loading, error]);
+  }, [categories, loading, error, currentActiveId]);
 
   const handleCategoryClick = useCallback((e, id) => {
     e.preventDefault();
@@ -106,5 +117,5 @@ export const useCategoryScroll = (categories, loading, error) => {
     }
   }, []);
 
-  return { activeCategoryId, handleCategoryClick };
+  return { activeCategoryId: currentActiveId, handleCategoryClick };
 };

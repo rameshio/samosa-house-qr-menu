@@ -1,35 +1,21 @@
-import React from 'react';
+﻿import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import LogoIntro from '../src/components/LogoIntro';
 
 describe('LogoIntro', () => {
-  let matchMediaMock;
   let playMock;
-  let loadMock;
-
-  beforeAll(() => {
-    playMock = vi.fn().mockResolvedValue();
-    loadMock = vi.fn();
-    Object.defineProperty(HTMLMediaElement.prototype, 'play', {
-      configurable: true,
-      value: playMock
-    });
-    Object.defineProperty(HTMLMediaElement.prototype, 'load', {
-      configurable: true,
-      value: loadMock
-    });
-  });
+  let matchMediaMock;
 
   beforeEach(() => {
-    try {
-      sessionStorage.clear();
-    } catch {}
-    document.body.style.overflow = '';
+    sessionStorage.clear();
+    
     vi.useFakeTimers();
-    playMock.mockClear();
-    loadMock.mockClear();
 
+    playMock = vi.fn().mockResolvedValue();
+    window.HTMLMediaElement.prototype.play = playMock;
+    window.HTMLMediaElement.prototype.load = vi.fn();
+    
     matchMediaMock = vi.fn().mockImplementation(query => ({
       matches: false,
       media: query,
@@ -52,12 +38,15 @@ describe('LogoIntro', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('2. A fresh session renders the video.', () => {
+  it('2. A fresh session renders the video immediately to block the menu.', () => {
     render(<LogoIntro />);
+    const dialog = screen.getByRole('dialog');
+    // The gate must be visually solid immediately to prevent menu flash
+    expect(dialog).toHaveClass('opacity-100');
+    expect(dialog).toHaveClass('pointer-events-auto');
+    
     const video = screen.getByTestId('intro-video');
     expect(video).toBeInTheDocument();
-    const source = video.querySelector('source');
-    expect(source).toHaveAttribute('src', '/videos/samosa-house-welcome-unique-3s-v2.mp4');
   });
 
   it('3. The video has no poster attribute and is transparent until playing.', () => {
@@ -65,16 +54,14 @@ describe('LogoIntro', () => {
     const video = screen.getByTestId('intro-video');
     expect(video).not.toHaveAttribute('poster');
     
-    const dialog = screen.getByRole('dialog');
-    // Initially, it has opacity-0 pointer-events-none (meaning menu is visible and usable underneath)
-    expect(dialog).toHaveClass('opacity-0');
-    expect(dialog).toHaveClass('pointer-events-none');
+    // Video itself is transparent to hide black frames/buffering
+    expect(video).toHaveClass('opacity-0');
     
     // There should be no "Welcome to" text or other intro-image explicitly added as a duplicate.
     expect(screen.queryByText(/Welcome to/i)).not.toBeInTheDocument();
   });
 
-  it('4. The playing event makes the overlay visible and clears the watchdog.', () => {
+  it('4. The playing event makes the video visible and clears the watchdog.', () => {
     render(<LogoIntro />);
     const video = screen.getByTestId('intro-video');
     
@@ -83,16 +70,10 @@ describe('LogoIntro', () => {
     
     fireEvent(video, new Event('playing'));
     
+    // Video fades in
+    expect(video).toHaveClass('opacity-100');
+    
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toHaveClass('opacity-100');
-    expect(dialog).toHaveClass('pointer-events-auto');
-    expect(dialog).not.toHaveClass('opacity-0');
-    
-    act(() => {
-      vi.advanceTimersByTime(1500);
-    });
-    
-    // Still fully visible
     expect(dialog).toHaveClass('opacity-100');
   });
 
@@ -221,16 +202,16 @@ describe('LogoIntro', () => {
     expect(dialog).toHaveClass('opacity-100');
   });
 
-  it('14. Body scrolling is locked ONLY when playing/reduced-motion and restored on dismissal.', () => {
+  it('14. Body scrolling is locked IMMEDIATELY for the gate and restored on dismissal.', () => {
     render(<LogoIntro />);
     
-    // Initially not locked
-    expect(document.body.style.overflow).toBe('');
+    // Immediately locked because the gate is active and blocking the menu
+    expect(document.body.style.overflow).toBe('hidden');
     
     const video = screen.getByTestId('intro-video');
     fireEvent(video, new Event('playing'));
     
-    // Now it's locked
+    // Still locked
     expect(document.body.style.overflow).toBe('hidden');
     
     fireEvent.ended(video);

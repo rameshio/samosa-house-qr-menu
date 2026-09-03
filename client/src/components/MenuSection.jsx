@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import MenuItemCard from './MenuItemCard';
 
 const MenuSection = ({ id, category, items }) => {
@@ -7,7 +7,7 @@ const MenuSection = ({ id, category, items }) => {
       <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6 pb-2 border-b-2 border-brand-saffron/30">
         {category}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
         {items.map(item => (
           <MenuItemCard key={item.id} item={item} />
         ))}

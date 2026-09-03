@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+﻿import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const SESSION_KEY = 'samosa-house-intro-seen-v2';
 const INTRO_FALLBACK_DURATION = 3500;
@@ -80,17 +80,15 @@ const LogoIntro = () => {
     }
   }, [isVisible, dismissIntro]);
 
-  const isActive = hasStartedPlaying || isReducedMotion;
-
-  // Only lock body scrolling when visually active
+  // Lock body scrolling from the moment the intro is visible to prevent underlying menu interaction
   useEffect(() => {
-    if (isVisible && isActive) {
+    if (isVisible) {
       document.body.style.overflow = 'hidden';
       return () => {
         document.body.style.overflow = '';
       };
     }
-  }, [isVisible, isActive]);
+  }, [isVisible]);
 
   // Video properties setup
   useEffect(() => {
@@ -209,7 +207,7 @@ const LogoIntro = () => {
   return (
     <div 
       className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-brand-saffron transition-opacity duration-300 motion-reduce:transition-none ${
-        isFading ? 'opacity-0 pointer-events-none' : isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        isFading ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
       }`}
       role="dialog"
       aria-modal="true"
@@ -227,7 +225,9 @@ const LogoIntro = () => {
             onPlaying={handlePlaying}
             onEnded={handleVideoEnded}
             onError={handleVideoError}
-            className="w-full h-full object-contain"
+            className={`w-full h-full object-contain transition-opacity duration-300 motion-reduce:transition-none ${
+              hasStartedPlaying ? 'opacity-100' : 'opacity-0'
+            }`}
             data-testid="intro-video"
           >
             <source src={VIDEO_SRC} type="video/mp4" />

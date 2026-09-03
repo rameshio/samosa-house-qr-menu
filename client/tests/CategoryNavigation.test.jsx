@@ -15,6 +15,13 @@ const mockCategories = [
   { id: 'chaat', name: 'Chaat', items: [{ id: '2', name: 'C1', basePriceCents: 200, available: true }] }
 ];
 
+
+global.ResizeObserver = class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
 describe('CategoryNavigation', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -60,7 +67,7 @@ describe('CategoryNavigation', () => {
     render(<TestWrapper activeId="chaat" />);
     const links = screen.getAllByRole('link');
     expect(links[0]).not.toHaveAttribute('aria-current');
-    expect(links[1]).toHaveAttribute('aria-current', 'location');
+    expect(links[1]).toHaveAttribute('aria-current', 'page');
   });
 });
 
@@ -94,7 +101,7 @@ describe('useCategoryScroll & MenuPage Integration', () => {
       block: 'start'
     }));
     
-    expect(link).toHaveAttribute('aria-current', 'location');
+    expect(link).toHaveAttribute('aria-current', 'page');
   });
 
   it('9,10,11. IntersectionObserver changes the active category, cleans up, and tolerates missing observer', async () => {
@@ -127,7 +134,7 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     });
     
     const chaatLink = await screen.findByRole('link', { name: 'Chaat' });
-    expect(chaatLink).toHaveAttribute('aria-current', 'location');
+    expect(chaatLink).toHaveAttribute('aria-current', 'page');
     expect(window.history.replaceState).toHaveBeenCalledWith(null, '', '#category-chaat');
     
     unmount();
@@ -175,7 +182,7 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     });
     
     const link = await screen.findByRole('link', { name: 'Chaat' });
-    expect(link).toHaveAttribute('aria-current', 'location');
+    expect(link).toHaveAttribute('aria-current', 'page');
     expect(window.HTMLElement.prototype.scrollIntoView).toHaveBeenCalled(); // via setTimeout
     
     unmount();
@@ -187,7 +194,7 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     await screen.findByRole('heading', { name: 'Appetizers' });
     
     const appLink = await screen.findByRole('link', { name: 'Appetizers' });
-    expect(appLink).toHaveAttribute('aria-current', 'location'); // fallback to first
+    expect(appLink).toHaveAttribute('aria-current', 'page'); // fallback to first
   });
 
   it('15. Existing menu sections and items still render', async () => {

@@ -10,6 +10,13 @@ vi.mock('../src/components/DevelopmentStatus', () => ({
 
 vi.mock('../src/services/menuService');
 
+
+global.ResizeObserver = class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
 describe('MenuPage', () => {
   beforeEach(() => {
     vi.clearAllMocks();
