@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-09-02 Footer Logo Correction (Experimental)
+- **Phase**: Experiment
+- **Description**: Replaced the text heading in the footer with the official Samosa House transparent logo.
+- **Milestones**: 
+  - Updated `Footer.jsx` to render the logo securely without duplicating text headings.
+  - Styled compactly using `w-28 sm:w-32 h-auto object-contain`.
+  - Added new assertions in `Footer.test.jsx`.
+
+## 2026-09-02 Docker Packaging (Experimental)
+- **Phase**: Experiment
+- **Description**: Prepared an unapproved, temporary Docker preview environment for remote testing.
+- **Milestones**: 
+  - Created `.dockerignore` and a multi-stage `Dockerfile` to build and serve the application as a single container.
+  - Updated `server/src/app.js` to serve the React production build when `NODE_ENV === 'production'`.
+  - Ensured API endpoints and JSON 404 handlers remain intact.
+- **Reason**: Allowing stakeholders to preview the new West-menu-image mobile layout over the local network.
+- **Verification**: Built image, exposed port 8080, and verified network accessibility.
+
 ## 2026-09-02 Experimental West Menu Images
 - **Phase**: Experiment
 - **Description**: Replaced the current menu images with WebP versions from the new `samosa-house-west-menu-images-complete` folder where a confident match was found.
@@ -98,3 +116,14 @@
 - **Files Affected**: `README.md`, `AGENTS.md`, `.gitignore`, `.editorconfig`, `.vscode/*`, `docs/*`.
 - **Reason**: To establish a solid foundation and clear documentation structure before writing code.
 - **Verification**: Manually verified file existence and directory layout.
+
+### Fixed
+- Fixed an issue in the liquid-glass redesign where slowly scrolling down the page caused upward layout jumping due to native scrollIntoView interfering with document flow.
+- Replaced manual hash assignment inside the IntersectionObserver with history.replaceState to avoid native anchor jumping.
+
+### Changed
+- Replaced the footer PNG logo with a semantic HTML wordmark using the established `font-serif` and `text-brand-saffron` styling to complement the dark background and eliminate baked-in image backgrounds.
+
+### Fixed
+- Restored `position: sticky` functionality for the main header and category navigation bar by removing an overly broad `overflow-hidden` class from the root layout container. 
+- Increased liquid-glass background opacity on sticky headers from 70% to 85% to improve text legibility when scrolling over vibrant images.
