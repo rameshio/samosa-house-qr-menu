@@ -1,4 +1,4 @@
-# Menu Editing Guide
+﻿# Menu Editing Guide
 
 **History**: This document was originally created during Phase 1 as a planned guide. In Phase 6, the menu data used a static mock file at `client/src/mocks/placeholderMenu.js` to test layout.
 **Phase 7 Update**: The static data has now been replaced with a dynamic API endpoint (`GET /api/menu`). The raw data is stored as JSON in `server/data/menu.json`.
@@ -12,7 +12,7 @@ The `MenuItemCard` component is fully dynamic and depends on the shape of the da
 - `spicy`: Boolean
 - `dietary`: Array of strings (e.g., `['vegan', 'vegetarian']`)
 - `available`: Boolean
-- `image`: String path (e.g. `/images/menu/samosa.webp`) or null. The backend validator strict-checks these to prevent external URLs or traversal paths. Falls back to local SVG icon on failure.
+- `image`: String path (e.g. `/images/menu/samosa.webp` or `/images/menu-west-v2/...`) or null. The backend validator strict-checks these to prevent external URLs or traversal paths. Falls back to local SVG icon on failure.
 - `needsReview`: Boolean (internal flag not displayed to customers)
 
 ## Editing the Menu

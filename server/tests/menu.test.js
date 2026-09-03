@@ -32,6 +32,7 @@ test('GET /api/menu endpoints', async (t) => {
     
     // Check specific representative items
     const allItems = categories.flatMap(c => c.items);
+    assert.strictEqual(allItems.length, 46, 'Should have exactly 46 items');
     
     const samosa = allItems.find(i => i.name === 'Samosa');
     assert.strictEqual(samosa.basePriceCents, 225);
@@ -57,7 +58,7 @@ test('GET /api/menu endpoints', async (t) => {
       }
       assert.ok(item.image, `Item ${item.name} is missing an image path`);
       assert.strictEqual(typeof item.image, 'string');
-      assert.strictEqual(item.image.startsWith('/images/menu/'), true);
+      assert.ok(item.image.startsWith('/images/menu/') || item.image.startsWith('/images/menu-west-v2/'), true);
       
       const fsPath = `../client/public${item.image}`;
       assert.ok(fs.existsSync(fsPath), `Image file missing on disk: ${fsPath}`);

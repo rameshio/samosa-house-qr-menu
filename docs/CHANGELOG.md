@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-02 Experimental West Menu Images
+- **Phase**: Experiment
+- **Description**: Replaced the current menu images with WebP versions from the new `samosa-house-west-menu-images-complete` folder where a confident match was found.
+- **Milestones**: 
+  - Audited 52 source images and securely matched 27 items.
+  - Converted confirmed matches to WebP format inside `/images/menu-west-v2/`.
+  - Unmatched or ambiguous files (and duplicates) retain their existing `/images/menu/` asset paths.
+- **Files Affected**: `server/data/menu.json`, `docs/WEST_MENU_IMAGE_EXPERIMENT.md`.
+- **Reason**: To determine if the West Samosa House Uber Eats images provide a better visual experience without disrupting existing assets.
+- **Verification**: Zero broken paths, 8 categories, 46 items correctly validated. Backend tests updated to accept the new `/images/menu-west-v2/` directory.
+
 ## 2026-09-02 Phase 8
 - **Phase**: 8
 - **Description**: Implemented mobile-first sticky category navigation that syncs with page scroll.

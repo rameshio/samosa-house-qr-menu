@@ -61,8 +61,8 @@ export const validateMenu = (data) => {
         if (item.image.includes('..') || item.image.includes('//')) {
           throw new Error('Image path contains unsafe traversal or external segments');
         }
-        if (!item.image.startsWith('/images/menu/')) {
-          throw new Error('Image path must start with /images/menu/');
+        if (!item.image.startsWith('/images/menu/') && !item.image.startsWith('/images/menu-west-v2/')) {
+          throw new Error('Image path must start with /images/menu/ or /images/menu-west-v2/');
         }
         const validExts = ['.jpg', '.jpeg', '.png', '.webp'];
         const hasValidExt = validExts.some(ext => item.image.toLowerCase().endsWith(ext));
