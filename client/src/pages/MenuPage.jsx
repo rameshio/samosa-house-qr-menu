@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
 import LocationDisplay from '../components/LocationDisplay';
 import CategoryNavigation from '../components/CategoryNavigation';
 import MenuSection from '../components/MenuSection';
@@ -38,10 +39,12 @@ const MenuPage = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-marble relative">
       <LogoIntro />
       <Header />
       <LocationDisplay location="Culver City" />
+      
+      <HeroSection />
       
       {!loading && !error && menuData?.categories?.length > 0 && (
         <CategoryNavigation 
@@ -51,20 +54,8 @@ const MenuPage = () => {
         />
       )}
 
-      <main className="flex-grow w-full max-w-4xl mx-auto px-4 py-8 sm:px-6">
-        <div className="mb-8 text-center sm:text-left">
-          <h1 className="text-3xl font-extrabold text-gray-900 mb-2">
-            {menuData?.menuType === 'restaurant' ? 'Restaurant Menu' : menuData?.menuType === 'catering' ? 'Catering Menu' : 'Our Menu'}
-          </h1>
-          <p className="text-gray-600 text-sm max-w-2xl mb-4">
-            Welcome to Samosa House. Enjoy our selection of authentic Indian dishes prepared fresh daily.
-          </p>
-          {menuData?.isProvisional && (
-            <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded text-amber-800 text-sm font-medium">
-              Menu items and prices are being confirmed and may vary by location.
-            </div>
-          )}
-        </div>
+      <main className="flex-grow w-full max-w-4xl mx-auto px-4 py-8 sm:px-6 z-10 relative">
+        {menuData?.isProvisional && (<div className="mb-8 bg-amber-50 border-l-4 border-amber-500 p-4 rounded text-amber-800 text-sm font-medium shadow-sm">Menu items and prices are being confirmed and may vary by location.</div>)}
 
         {loading && (
           <div className="flex flex-col items-center justify-center py-12" role="status" aria-label="Loading menu">

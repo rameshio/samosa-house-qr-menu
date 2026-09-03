@@ -8,9 +8,9 @@ const MenuItemCard = ({ item }) => {
   const [imgError, setImgError] = React.useState(false);
 
   return (
-    <article className={`flex flex-col sm:flex-row bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${!available ? 'opacity-60 grayscale' : ''}`}>
+    <article className={`flex flex-col sm:flex-row bg-white/95 border border-white/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-xl overflow-hidden supports-[backdrop-filter:blur(1px)]:bg-white/90 ${!available ? 'opacity-60 grayscale' : ''}`}>
       {/* Image or Fallback */}
-      <div className="w-full sm:w-32 h-40 sm:h-auto shrink-0 bg-brand-saffron flex items-center justify-center text-brand-dark-red">
+      <div className="w-full aspect-[4/3] sm:w-32 sm:aspect-auto sm:h-auto shrink-0 bg-gray-100 flex items-center justify-center text-gray-400">
         {image && !imgError ? (
           <img 
             src={image} 
@@ -18,7 +18,7 @@ const MenuItemCard = ({ item }) => {
             loading="lazy"
             decoding="async"
             onError={() => setImgError(true)}
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-contain sm:object-cover" 
           />
         ) : (
           <svg className="w-12 h-12 opacity-50" fill="currentColor" viewBox="0 0 24 24" data-testid="fallback-svg">
@@ -29,8 +29,8 @@ const MenuItemCard = ({ item }) => {
 
       <div className="p-4 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-1 gap-2">
-          <h3 className="font-bold text-gray-900 text-lg leading-tight">{name}</h3>
-          <span className={`font-bold whitespace-nowrap ${basePriceCents === null ? 'text-gray-500 font-medium text-sm mt-1' : 'text-brand-heritage-green'}`}>
+          <h3 className="font-serif font-bold text-gray-900 text-xl leading-tight">{name}</h3>
+          <span className={`font-bold whitespace-nowrap ${basePriceCents === null ? 'text-gray-500 font-medium text-sm mt-1' : 'text-brand-saffron'}`}>
             {formatPriceCents(basePriceCents)}
           </span>
         </div>

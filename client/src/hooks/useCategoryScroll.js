@@ -2,40 +2,47 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 export const useCategoryScroll = (categories, loading, error) => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
+  const activeIdRef = useRef(null);
   const observerRef = useRef(null);
   const clickTimeoutRef = useRef(null);
   const isClickScrolling = useRef(false);
+  const initialLoadDone = useRef(false);
 
   useEffect(() => {
     if (loading || error || !categories || categories.length === 0) return;
 
-    const hash = window.location.hash;
-    let initialId = categories[0].id;
+    if (!initialLoadDone.current) {
+      initialLoadDone.current = true;
+      const hash = window.location.hash;
+      let initialId = categories[0].id;
 
-    if (hash && hash.startsWith('#category-')) {
-      const id = hash.replace('#category-', '');
-      if (categories.some(c => c.id === id)) {
-        initialId = id;
-        setTimeout(() => {
-          const section = document.getElementById(hash.substring(1));
-          if (section) {
-            const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            try {
-              section.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth', block: 'start' });
-            } catch {
-              section.scrollIntoView();
+      if (hash && hash.startsWith('#category-')) {
+        const id = hash.replace('#category-', '');
+        if (categories.some(c => c.id === id)) {
+          initialId = id;
+          setTimeout(() => {
+            const section = document.getElementById(hash.substring(1));
+            if (section) {
+              const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              try {
+                section.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth', block: 'start' });
+              } catch {
+                section.scrollIntoView();
+              }
             }
-          }
-        }, 100);
+          }, 100);
+        }
       }
+      setActiveCategoryId(initialId);
+      activeIdRef.current = initialId;
     }
-    // eslint-disable-next-line react/set-state-in-effect
-    setActiveCategoryId(initialId);
 
     if (typeof IntersectionObserver !== 'undefined') {
+      if (observerRef.current) observerRef.current.disconnect();
+
       const options = {
         rootMargin: '-150px 0px -60% 0px',
-        threshold: [0, 0.1, 0.5, 1.0]
+        threshold: 0
       };
 
       observerRef.current = new IntersectionObserver((entries) => {
@@ -44,7 +51,11 @@ export const useCategoryScroll = (categories, loading, error) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const id = entry.target.id.replace('category-', '');
-            setActiveCategoryId(id);
+            if (activeIdRef.current !== id) {
+              activeIdRef.current = id;
+              setActiveCategoryId(id);
+              window.history.replaceState(null, '', `#category-${id}`);
+            }
           }
         });
       }, options);
@@ -63,15 +74,13 @@ export const useCategoryScroll = (categories, loading, error) => {
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
-      if (clickTimeoutRef.current) {
-        clearTimeout(clickTimeoutRef.current);
-      }
     };
   }, [categories, loading, error]);
 
   const handleCategoryClick = useCallback((e, id) => {
     e.preventDefault();
     setActiveCategoryId(id);
+    activeIdRef.current = id;
     
     isClickScrolling.current = true;
     if (clickTimeoutRef.current) {

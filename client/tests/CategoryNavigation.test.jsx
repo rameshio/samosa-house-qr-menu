@@ -20,6 +20,7 @@ describe('CategoryNavigation', () => {
     vi.clearAllMocks();
     window.location.hash = '';
     window.HTMLElement.prototype.scrollIntoView = vi.fn();
+    window.HTMLElement.prototype.scrollTo = vi.fn();
     window.matchMedia = vi.fn().mockImplementation(query => ({
       matches: false,
       media: query,
@@ -69,7 +70,9 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     vi.clearAllMocks();
     window.location.hash = '';
     window.history.pushState = vi.fn();
+    window.history.replaceState = vi.fn();
     window.HTMLElement.prototype.scrollIntoView = vi.fn();
+    window.HTMLElement.prototype.scrollTo = vi.fn();
   });
 
   it('6,7. Clicking a category calls the expected scrolling behavior and updates active state', async () => {
@@ -125,6 +128,7 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     
     const chaatLink = await screen.findByRole('link', { name: 'Chaat' });
     expect(chaatLink).toHaveAttribute('aria-current', 'location');
+    expect(window.history.replaceState).toHaveBeenCalledWith(null, '', '#category-chaat');
     
     unmount();
     expect(disconnectMock).toHaveBeenCalled();
@@ -205,7 +209,9 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     const chaatLink = await screen.findByRole('link', { name: 'Chaat' });
     fireEvent.click(chaatLink);
     
-    // It should have been called for both the vertical section scroll AND the horizontal nav tab scroll.
+    // Vertical section scroll
     expect(window.HTMLElement.prototype.scrollIntoView).toHaveBeenCalled();
+    // Horizontal nav tab scroll
+    expect(window.HTMLElement.prototype.scrollTo).toHaveBeenCalled();
   });
 });

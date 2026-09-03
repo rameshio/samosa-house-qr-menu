@@ -38,7 +38,7 @@ describe('MenuPage', () => {
       expect(screen.getByRole('heading', { name: 'Appetizers' })).toBeInTheDocument();
     });
     
-    expect(screen.getByRole('heading', { name: 'Restaurant Menu' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Authentic Flavors/i })).toBeInTheDocument();
     expect(screen.getByText('Menu items and prices are being confirmed and may vary by location.')).toBeInTheDocument();
     expect(screen.getByText('Samosa')).toBeInTheDocument();
     expect(screen.getByText('$2.25')).toBeInTheDocument();

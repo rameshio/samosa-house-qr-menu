@@ -42,6 +42,15 @@ describe('MenuItemCard', () => {
     expect(img).toHaveAttribute('src', '/images/menu/samosa.webp');
     expect(img).toHaveAttribute('loading', 'lazy');
     expect(img).toHaveAttribute('decoding', 'async');
+    
+    // Check non-cropping mobile presentation and desktop overrides
+    expect(img).toHaveClass('object-contain');
+    expect(img).toHaveClass('sm:object-cover');
+    
+    // Check stable container aspect ratio
+    expect(img.parentElement).toHaveClass('aspect-[4/3]');
+    expect(img.parentElement).toHaveClass('sm:aspect-auto');
+    
     expect(screen.queryByTestId('fallback-svg')).not.toBeInTheDocument();
   });
 

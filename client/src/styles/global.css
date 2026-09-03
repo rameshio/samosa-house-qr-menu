@@ -1,17 +1,26 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
-  --color-brand-saffron: #F29F05;
+  --color-brand-saffron: #F97316;
   --color-brand-dark-red: #8C1C13;
   --color-brand-heritage-green: #2E472D;
-  --color-brand-neutral-bg: #F5F5DC;
-  --color-brand-primary-text: #1A1A1A;
+  --color-brand-neutral-bg: #FAFAFA;
+  --color-brand-primary-text: #1F2937;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
-/* Provisional brand colors until final branding is approved */
 body {
   background-color: var(--color-brand-neutral-bg);
   color: var(--color-brand-primary-text);
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.bg-marble {
+  background-color: #FAFAFA;
+  background-image: radial-gradient(circle at 100% 50%, transparent 20%, rgba(249, 115, 22, 0.03) 21%, rgba(249, 115, 22, 0.03) 34%, transparent 35%, transparent),
+                    radial-gradient(circle at 0% 50%, transparent 20%, rgba(249, 115, 22, 0.03) 21%, rgba(249, 115, 22, 0.03) 34%, transparent 35%, transparent);
+  background-size: 120px 120px;
 }

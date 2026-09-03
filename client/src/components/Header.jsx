@@ -4,7 +4,7 @@ const Header = () => {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <header className="bg-brand-saffron py-4 px-6 shadow-sm sticky top-0 z-40">
+    <header className="bg-white/85 backdrop-blur-md border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.05)] supports-[not_(backdrop-filter:blur(1px))]:bg-white/95 py-4 px-6 sticky top-0 z-40 transition-colors duration-300">
       <div className="max-w-4xl mx-auto flex items-center justify-center">
         {!imageError ? (
           <img 
