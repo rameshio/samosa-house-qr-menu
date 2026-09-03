@@ -23,7 +23,8 @@
 - **Files Affected**: `server/data/menu.json`, `server/src/validators/menuValidator.js`, `client/src/components/LogoIntro.jsx`, `client/src/components/MenuItemCard.jsx`, `docs/IMAGE_ASSET_MAPPING.md`, plus test files.
 - **Reason**: To enhance branding and verify complete adherence to asset security rules before progressing to interactive frontend phases.
 - **Verification**: Frontend (30 assertions) and backend (18 assertions) pass successfully. Tested video parsing events, fallback limits, schema validation regex constraints, and lazy-loading DOM attributes. Manual visual testing pending.
-- **Corrections**: Follow-up manual testing revealed missing images and skipped video playback. 
+- **Corrections**: Follow-up manual testing revealed missing images and skipped video playback.
+  - Mobile Lifecycle Fix: Fixed an issue on mobile browsers where restoring a backgrounded tab or reviving via BFCache caused the intro screen to hang blank for 3.5 seconds. Added pageshow and isibilitychange listeners to immediately handle active sessions, implemented a 1200ms watchdog timer tied to the playing event to forcefully fail-fast if playback hangs.\n  - Visual Double-Intro Fix: Removed the poster and static logo fallback from the default video playback path. The intro overlay now remains completely transparent (opacity-0 pointer-events-none) leaving the menu visible and interactive until the exact moment the video fires playing. This avoids a duplicate flash of the logo before the MP4 logo begins. 
   - Image Fix 1: Mapped `dahi-puri.webp`, `3-item-combo-white-rice.webp`, and `veg-biryani.webp` explicitly despite them being intentional source-site duplicates.
   - Video Fix: Video failed to play due to the old `sessionStorage` flag (`samosa-house-intro-seen: true`) and browser caching of identical filenames.
     - Verified source: `Poject files/Samosa-House-Welcome-Unique-3s.mp4` (Duration: 3s, Res: 1080x1920).

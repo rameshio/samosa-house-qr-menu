@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const SESSION_KEY = 'samosa-house-intro-seen-v2';
-const INTRO_FALLBACK_DURATION = 3500; // ~3.5 seconds
+const INTRO_FALLBACK_DURATION = 3500;
+const WATCHDOG_DURATION = 1200;
 const INTRO_FADE_DURATION = 300;
 const VIDEO_SRC = '/videos/samosa-house-welcome-unique-3s-v2.mp4';
+const POSTER_SRC = '/images/brand/samosa-house-logo.png';
 
 const LogoIntro = () => {
   const videoRef = useRef(null);
+  const isDismissingRef = useRef(false);
+  const watchdogRef = useRef(null);
 
   const [isVisible, setIsVisible] = useState(() => {
     let seen = false;
@@ -15,15 +19,12 @@ const LogoIntro = () => {
     } catch {
       // Ignore
     }
-    if (import.meta.env.DEV) {
-      console.log(`Logo intro already seen: ${seen}`);
-      console.log(`Logo intro visible: ${!seen}`);
-    }
     return !seen;
   });
 
   const [isFading, setIsFading] = useState(false);
-  const [showFallback, setShowFallback] = useState(false);
+  const [hasStartedPlaying, setHasStartedPlaying] = useState(false);
+  
   const [isReducedMotion, setIsReducedMotion] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -32,67 +33,77 @@ const LogoIntro = () => {
   });
 
   useEffect(() => {
-    if (import.meta.env.DEV && isVisible) {
-      console.log(`Reduced motion enabled: ${isReducedMotion}`);
-    }
-  }, [isVisible, isReducedMotion]);
-
-  useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const listener = (e) => setIsReducedMotion(e.matches);
     mediaQuery.addEventListener('change', listener);
     return () => mediaQuery.removeEventListener('change', listener);
   }, []);
 
-  const dismissIntro = useCallback(() => {
-    if (isFading) return;
-    setIsFading(true);
+  const dismissIntro = useCallback((immediate = false) => {
+    if (isDismissingRef.current) return;
+    isDismissingRef.current = true;
     
     try {
       sessionStorage.setItem(SESSION_KEY, 'true');
     } catch {
-      // Ignore storage errors safely
+      // Ignore
     }
 
+    if (watchdogRef.current) {
+      clearTimeout(watchdogRef.current);
+      watchdogRef.current = null;
+    }
+
+    if (immediate) {
+      setIsVisible(false);
+      document.body.style.overflow = '';
+      return;
+    }
+
+    setIsFading(true);
     setTimeout(() => {
       setIsVisible(false);
       document.body.style.overflow = '';
     }, INTRO_FADE_DURATION);
-  }, [isFading]);
+  }, []);
 
+  // 3.5s emergency fallback timer (always runs as safety net)
   useEffect(() => {
     if (isVisible) {
-      document.body.style.overflow = 'hidden';
-      
-      const timer = setTimeout(() => {
+      const emergencyTimer = setTimeout(() => {
         dismissIntro();
       }, INTRO_FALLBACK_DURATION);
 
       return () => {
-        clearTimeout(timer);
-        document.body.style.overflow = '';
+        clearTimeout(emergencyTimer);
       };
     }
   }, [isVisible, dismissIntro]);
 
+  const isActive = hasStartedPlaying || isReducedMotion;
+
+  // Only lock body scrolling when visually active
   useEffect(() => {
-    if (isVisible && videoRef.current && !isReducedMotion && !showFallback) {
+    if (isVisible && isActive) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }
+  }, [isVisible, isActive]);
+
+  // Video properties setup
+  useEffect(() => {
+    if (isVisible && videoRef.current && !isReducedMotion) {
       const video = videoRef.current;
       video.muted = true;
       video.defaultMuted = true;
       video.playsInline = true;
-      video.currentTime = 0;
       video.load();
-      if (import.meta.env.DEV) {
-        console.log('Video loaded');
-      }
     }
-  }, [isVisible, isReducedMotion, showFallback]);
+  }, [isVisible, isReducedMotion]);
 
-  const handleCanPlay = () => {
-    if (import.meta.env.DEV) {
-      console.log('Video can play');
-    }
+  const attemptPlay = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
 
@@ -102,48 +113,104 @@ const LogoIntro = () => {
 
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          if (import.meta.env.DEV) {
-            console.log('Video playback started');
-          }
-        })
-        .catch((err) => {
-          if (err.name === 'AbortError') {
-            if (import.meta.env.DEV) {
-              console.log(`Video playback rejected: ${err.name} - ${err.message}`);
-            }
-          } else {
-            if (import.meta.env.DEV) {
-              console.log(`Video playback rejected: ${err.name} - ${err.message}`);
-            }
-            setShowFallback(true);
-          }
-        });
+      // Start 1.2s watchdog
+      if (!watchdogRef.current && !hasStartedPlaying) {
+        watchdogRef.current = setTimeout(() => {
+          if (import.meta.env.DEV) console.log('Playback watchdog expired');
+          dismissIntro(true); // immediate dismiss if it hangs
+        }, WATCHDOG_DURATION);
+      }
+
+      playPromise.catch((err) => {
+        if (err.name === 'AbortError') {
+          if (import.meta.env.DEV) console.log('Video playback rejected (AbortError)');
+        } else {
+          if (import.meta.env.DEV) console.log('Video playback error:', err);
+          if (watchdogRef.current) clearTimeout(watchdogRef.current);
+          dismissIntro(true);
+        }
+      });
     }
+  }, [dismissIntro, hasStartedPlaying]);
+
+  const handleCanPlay = () => {
+    if (!hasStartedPlaying) attemptPlay();
+  };
+
+  const handlePlaying = () => {
+    if (watchdogRef.current) {
+      clearTimeout(watchdogRef.current);
+      watchdogRef.current = null;
+    }
+    setHasStartedPlaying(true);
   };
 
   const handleVideoEnded = () => {
-    if (import.meta.env.DEV) {
-      console.log('Video ended');
-    }
     dismissIntro();
   };
 
-  const handleVideoError = (e) => {
-    if (import.meta.env.DEV) {
-      console.log(`Video error: ${e.nativeEvent?.target?.error?.message || 'MediaError'}`);
-    }
-    setShowFallback(true);
+  const handleVideoError = () => {
+    dismissIntro(true);
   };
+
+  // Lifecycle listeners for restoring tabs (bfcache / visibility)
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const checkSessionAndVideoState = (isPageShow = false) => {
+      let seen = false;
+      try {
+        seen = sessionStorage.getItem(SESSION_KEY) === 'true';
+      } catch {}
+
+      if (seen) {
+        dismissIntro(true);
+        return;
+      }
+
+      const video = videoRef.current;
+      if (video && !isReducedMotion) {
+        if (video.ended || video.currentTime >= video.duration) {
+          dismissIntro(true);
+        } else if (video.paused && !isPageShow && hasStartedPlaying) { 
+          // only attempt resume if we had already started
+          attemptPlay();
+        } else if (video.paused && !isPageShow && !hasStartedPlaying) {
+          attemptPlay();
+        }
+      }
+    };
+
+    const handlePageShow = (e) => {
+      if (e.persisted) {
+        checkSessionAndVideoState(true);
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        checkSessionAndVideoState(false);
+      }
+    };
+
+    window.addEventListener('pageshow', handlePageShow);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('pageshow', handlePageShow);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [isVisible, dismissIntro, attemptPlay, hasStartedPlaying, isReducedMotion]);
 
   if (!isVisible) return null;
 
-  const showVideo = !isReducedMotion && !showFallback;
+  const showVideo = !isReducedMotion;
 
   return (
     <div 
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-brand-saffron transition-opacity duration-300 motion-reduce:transition-none ${isFading ? 'opacity-0' : 'opacity-100'}`}
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-brand-saffron transition-opacity duration-300 motion-reduce:transition-none ${
+        isFading ? 'opacity-0 pointer-events-none' : isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}
       role="dialog"
       aria-modal="true"
       aria-label="Samosa House Welcome"
@@ -157,6 +224,7 @@ const LogoIntro = () => {
             playsInline
             preload="auto"
             onCanPlay={handleCanPlay}
+            onPlaying={handlePlaying}
             onEnded={handleVideoEnded}
             onError={handleVideoError}
             className="w-full h-full object-contain"
@@ -167,7 +235,7 @@ const LogoIntro = () => {
         ) : (
           <div className="flex flex-col items-center justify-center px-4 w-full h-full">
             <img 
-              src="/images/brand/samosa-house-logo.png" 
+              src={POSTER_SRC} 
               alt="Samosa House" 
               className="w-full max-w-[80%] md:max-w-md h-auto object-contain"
               data-testid="intro-fallback-image"

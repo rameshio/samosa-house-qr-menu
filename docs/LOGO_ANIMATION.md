@@ -28,3 +28,15 @@ To manually re-trigger the animation during testing, run this in the browser con
 ```javascript
 sessionStorage.removeItem('samosa-house-intro-seen-v2')
 ```
+
+## Mobile Browser Lifecycle & Back-Forward Cache (BFCache)
+Mobile browsers routinely preserve tab states in memory (BFCache) when backgrounded. This means closing and reopening the browser may revive the exact DOM and sessionStorage variables without executing a full page reload.
+
+To prevent the video from freezing or failing to restart, LogoIntro hooks into pageshow and isibilitychange window events. Upon restoration:
+- If the session flag (samosa-house-intro-seen-v2) is active, the overlay is dismissed instantly without animation.
+- If the video was halted mid-playback, it safely attempts to resume.
+
+## Playback Startup Watchdog
+A short 1200ms watchdog timer begins the moment ideo.play() is invoked. This timer requires the video element to physically emit a playing event before it expires. If the browser blocks playback silently (e.g., due to backgrounding, battery-saver constraints, or stalled rendering), the watchdog immediately assumes completion and dismisses the intro. This prevents the user from staring at a frozen/blank background for the full 3.5s emergency fallback.
+
+To avoid duplicating the intro (where a static logo flashes before the MP4 logo begins), the overlay remains fully transparent (opacity-0 pointer-events-none) and leaves the main menu visible and interactive underneath until the exact moment the video emits the playing event. If playback fails or is rejected, the intro silently cancels and leaves the menu visible. A static logo fallback is only rendered when prefers-reduced-motion is active.
