@@ -1,7 +1,7 @@
 # Project Status
 
-**Current Phase**: Phase 8 (Categories and sticky navigation)
-**Next Phase**: Phase 9 (Search and dietary filters)
+**Current Phase**: Phase 7 (Menu API and JSON data)
+**Next Phase**: Phase 8 (Categories and sticky navigation)
 
 ## Phases
 - [x] Phase 1: Project foundation and folder structure
@@ -12,8 +12,8 @@
 - [x] Phase 6: Basic mobile menu layout
 - [x] Phase 7: Menu API and JSON data
 - [x] Phase 7.5: Asset Integration Pass (Completed)
-- [x] Phase 8: Categories and sticky navigation
-- [x] Temporary Docker Preview built — manual review passed
+- [ ] Phase 8: Categories and sticky navigation (Implementation complete - manual testing pending)
+- [ ] Temporary Docker Preview built — manual review pending
 - [ ] Phase 9: Search and dietary filters
 - [ ] Phase 10: Location-specific menus
 - [ ] Phase 11: Location-specific QR routes
