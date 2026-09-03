@@ -127,3 +127,6 @@
 ### Fixed
 - Restored `position: sticky` functionality for the main header and category navigation bar by removing an overly broad `overflow-hidden` class from the root layout container. 
 - Increased liquid-glass background opacity on sticky headers from 70% to 85% to improve text legibility when scrolling over vibrant images.
+
+### Added
+- Created `MAINTENANCE_GUIDE.md` to document the project architecture, data flow, safe Git workflows, and common troubleshooting steps for beginners.
