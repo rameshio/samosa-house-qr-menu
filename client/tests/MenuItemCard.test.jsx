@@ -52,7 +52,7 @@ describe('MenuItemCard', () => {
     expect(img).toHaveAttribute('decoding', 'async');
     
     // Check non-cropping presentation
-    expect(img).toHaveClass('object-contain');
+    expect(img).toHaveClass('object-cover');
     // Check stable container aspect ratio by finding an ancestor
     const aspectContainer = img.closest('article').querySelector('.aspect-\\[4\\/3\\]');
     expect(aspectContainer).toBeInTheDocument();

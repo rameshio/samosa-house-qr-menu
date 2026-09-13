@@ -35,7 +35,7 @@ const MenuItemCard = ({ item, onSelect }) => {
                 loading="lazy"
                 decoding="async"
                 onError={() => setImgError(true)}
-                className="w-full h-full object-contain" 
+                className="w-full h-full object-cover" 
               />
             ) : (
               <svg className="w-10 h-10 opacity-50" fill="currentColor" viewBox="0 0 24 24" data-testid="fallback-svg">

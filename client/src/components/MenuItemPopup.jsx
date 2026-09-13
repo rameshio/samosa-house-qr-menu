@@ -88,7 +88,7 @@ const MenuItemPopup = ({ item, category, onClose }) => {
               src={item.image} 
               alt={item.name}
               onError={() => setImgError(true)}
-              className="w-full h-full object-contain p-4"
+              className="w-full h-full object-cover"
             />
           ) : (
             <svg className="w-16 h-16 opacity-30 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
