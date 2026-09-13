@@ -11,8 +11,17 @@ class IntersectionObserverMock {
   takeRecords() { return []; }
   unobserve() {}
 }
-
 vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
+
+class ResizeObserverMock {
+  constructor(callback) {
+    this.callback = callback;
+  }
+  disconnect() {}
+  observe() {}
+  unobserve() {}
+}
+vi.stubGlobal('ResizeObserver', ResizeObserverMock);
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

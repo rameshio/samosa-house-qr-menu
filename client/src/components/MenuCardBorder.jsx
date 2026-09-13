@@ -101,11 +101,9 @@ const MenuCardBorder = ({
 
   if (!shouldAnimate) {
     return (
-      <article
-        className={`flex flex-col relative bg-white/95 border border-gray-200 shadow-sm rounded-xl overflow-hidden h-full hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-brand-saffron ${className}`}
-      >
+      <div className={`w-full h-full relative ${className}`}>
         {children}
-      </article>
+      </div>
     );
   }
 
@@ -131,16 +129,15 @@ const MenuCardBorder = ({
   const angleDeg = `${cursorAngle.toFixed(3)}deg`;
 
   return (
-    <article
+    <div
       ref={cardRef}
       onPointerMove={handlePointerMove}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
       onFocus={handleFocus}
       onBlur={() => setIsHovered(false)}
-      className={`relative grid isolate border border-gray-200 shadow-sm rounded-xl overflow-hidden h-full hover:shadow-md transition-shadow focus-within:ring-2 focus-within:ring-brand-saffron ${className}`}
+      className={`relative grid isolate w-full h-full ${className}`}
       style={{
-        background: 'rgba(255, 255, 255, 0.95)',
         transform: 'translate3d(0, 0, 0.01px)',
       }}
     >
@@ -214,10 +211,10 @@ const MenuCardBorder = ({
         />
       </span>
 
-      <div className="flex flex-col relative overflow-hidden h-full z-[1]">
+      <div className="flex flex-col relative h-full w-full overflow-hidden rounded-[inherit] z-[1]">
         {children}
       </div>
-    </article>
+    </div>
   );
 };
 

@@ -27,3 +27,7 @@ These colors are mapped as CSS variables in `client/src/styles/global.css` under
 
 ### Menu Card Hover Effect
 Desktop interactive elements use a subtle pointer-tracking mesh gradient border on hover/focus. It utilizes Saffron, Gold, and Ivory to match the brand. It falls back to a static border on touch devices or when reduced motion is preferred.
+
+### Menu Cards
+- **Style**: Premium borderless cards with large rounded food images (aspect 4:3). Content flows cleanly directly beneath the image.
+- **Hover Effect**: The animated mesh gradient glow is restricted to the rounded image frame rather than the entire card.

@@ -138,3 +138,16 @@
 - Updated the mobile menu-card layout to display two cards per row (instead of full width). Cards were restructured to vertically stack the image, name, and price. Names are permitted to wrap up to two lines on narrower viewports.
 - Fixed an issue where the first category (Appetizers) appeared hidden or disabled on initial load after a refresh without scrolling. Corrected the active category initialization in \useCategoryScroll\ to correctly synchronously derive state, and separated the gooey background layer from the foreground interactive text layer in \CategoryNavigation\.
 - Added an interactive mesh-gradient hover border to menu item cards on desktop. Adapted from provided code to ensure accessibility, strictly pausing animation when inactive, and providing a static fallback border on mobile devices to preserve scrolling performance.
+- Redesigned menu cards to a premium borderless style. The outer bounding white box and full-card drop shadow were removed. A dedicated 4:3 rounded image frame was introduced. Item content flows cleanly beneath the image on a pure-white background.
+- Replaced mobile horizontal scrolling navigation with a responsive hybrid navigation layout. Categories now dynamically fit into a primary horizontal row, with any overflowing categories placed securely in a vertically-aligned three-dot dropdown menu. Added premium borderless category pills and accessible focus states.
+- Replaced mobile hybrid navigation with a two-state one-page progress navigation. The top of the page now features a clean, non-intrusive three-line hamburger menu that overlays without pushing content, while scrolling past the hero seamlessly reveals a sticky horizontal progress bar.
+
+## [Unreleased] - Phase 16
+### Added
+- Prisma ORM and PostgreSQL integration for menu data.
+- Authentication service using scrypt password hashing and HTTP-only session cookies.
+- Admin CRUD endpoints (/api/admin/menu) for modifying categories and menu items with draft/publish concepts and optimistic concurrency.
+- Secure image upload endpoints using Multer and Sharp (WebP compression).
+- Bootstrap CLI script (server/scripts/bootstrap-owner.js) to generate initial OWNER user.
+- eact-router-dom in frontend for upcoming Admin Dashboard implementation.
+

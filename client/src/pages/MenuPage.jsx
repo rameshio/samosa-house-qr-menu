@@ -15,21 +15,28 @@ const MenuPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const loadMenu = async () => {
+  const loadMenu = async (signal) => {
     try {
-      const data = await fetchMenu();
+      setLoading(true);
+      const data = await fetchMenu({ signal });
       setMenuData(data);
       setError(null);
     } catch (err) {
-      setError(err.message || 'Failed to load menu');
+      if (err.name === 'AbortError') return;
+      if (err.message && err.message.includes('Too many requests')) {
+        setError(err.message);
+      } else {
+        setError(err.message || 'Failed to load menu');
+      }
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    // eslint-disable-next-line
-    loadMenu();
+    const controller = new AbortController();
+    loadMenu(controller.signal);
+    return () => controller.abort();
   }, []);
 
   const { activeCategoryId, handleCategoryClick } = useCategoryScroll(
@@ -39,7 +46,7 @@ const MenuPage = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-marble relative">
+    <div className="min-h-screen flex flex-col bg-white relative">
       <LogoIntro />
       <Header />
       <LocationDisplay location="Culver City" />
@@ -67,7 +74,7 @@ const MenuPage = () => {
         {error && !loading && (
           <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center text-brand-dark-red my-8">
             <h2 className="text-xl font-bold mb-2">Unable to load menu</h2>
-            <p className="mb-4 text-sm text-red-700">Please check your connection and try again.</p>
+            <p className="mb-4 text-sm text-red-700">{error === 'Failed to load menu' ? 'Please check your connection and try again.' : error}</p>
             <button 
               onClick={() => { setError(null); setLoading(true); loadMenu(); }}
               className="px-6 py-2 bg-brand-dark-red text-white font-semibold rounded hover:bg-red-800 transition-colors"

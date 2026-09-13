@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
+    allowedHosts: ['samosa-house-preview-2027.loca.lt'],
     proxy: {
       '/api': {
         target: 'http://localhost:3000',

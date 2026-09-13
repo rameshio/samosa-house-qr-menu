@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(uuid())
+  email        String      @unique
+  displayName  String
+  passwordHash String
+  role         Role
+  isActive     Boolean     @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  sessions     Session[]
+  auditLogs    AuditLog[]
+}
+
+enum Role {
+  OWNER
+  STAFF
+}
+
+model Session {
+  id           String    @id
+  userId       String
+  user         User      @relation(fields: [userId], references: [id])
+  expiresAt    DateTime
+  createdAt    DateTime  @default(now())
+  lastUsedAt   DateTime  @default(now())
+  revokedAt    DateTime?
+
+  @@index([userId])
+}
+
+model Category {
+  id           String      @id
+  slug         String      @unique
+  name         String
+  displayOrder Int
+  isActive     Boolean     @default(true)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  menuItems    MenuItem[]
+}
+
+model MenuItem {
+  id               String    @id
+  slug             String    @unique
+  categoryId       String
+  category         Category  @relation(fields: [categoryId], references: [id])
+  name             String
+  description      String
+  priceCents       Int
+  imageUrl         String?
+  imageStorageKey  String?
+  isAvailable      Boolean   @default(true)
+  dietary          String[]
+  spicy            Boolean   @default(false)
+  allergens        String[]
+  displayOrder     Int
+  
+  // Draft fields
+  hasDraftChanges  Boolean   @default(false)
+  draftName        String?
+  draftDescription String?
+  draftPriceCents  Int?
+  draftImageUrl    String?
+  
+  version          Int       @default(1)
+  archivedAt       DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([categoryId])
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action      String
+  entityType  String
+  entityId    String
+  summary     String
+  createdAt   DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([userId])
+}
+

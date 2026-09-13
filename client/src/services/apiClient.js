@@ -13,6 +13,10 @@ export const apiClient = async (endpoint, options = {}) => {
     });
 
     if (!response.ok) {
+      if (response.status === 429) {
+        const retryAfter = response.headers.get('Retry-After');
+        throw new Error(`Too many requests. Please try again in ${retryAfter || 'a few'} seconds.`);
+      }
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 

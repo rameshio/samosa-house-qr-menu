@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import MenuItemCard from '../src/components/MenuItemCard';
@@ -53,9 +53,9 @@ describe('MenuItemCard', () => {
     
     // Check non-cropping presentation
     expect(img).toHaveClass('object-contain');
-    
-    // Check stable container aspect ratio
-    expect(img.parentElement).toHaveClass('aspect-[4/3]');
+    // Check stable container aspect ratio by finding an ancestor
+    const aspectContainer = img.closest('article').querySelector('.aspect-\\[4\\/3\\]');
+    expect(aspectContainer).toBeInTheDocument();
     
     expect(screen.queryByTestId('fallback-svg')).not.toBeInTheDocument();
   });

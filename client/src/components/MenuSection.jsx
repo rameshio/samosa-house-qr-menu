@@ -1,9 +1,13 @@
-﻿import React from 'react';
+import React from 'react';
 import MenuItemCard from './MenuItemCard';
 
 const MenuSection = ({ id, category, items }) => {
   return (
-    <section id={id} className="mb-14 scroll-mt-[135px] sm:scroll-mt-[150px]">
+    <section 
+      id={id} 
+      className="mb-14" 
+      style={{ scrollMarginTop: 'calc(var(--mobile-header-height, 64px) + var(--category-nav-height, 48px) + 16px)' }}
+    >
       <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6 pb-2 border-b-2 border-brand-saffron/30">
         {category}
       </h2>

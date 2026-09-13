@@ -1,12 +1,44 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const DATA_FILE = path.join(__dirname, '../../data/menu.json');
+import prisma from '../../prisma/client.js';
 
 export const getMenuData = async () => {
-  const data = await fs.readFile(DATA_FILE, 'utf-8');
-  return JSON.parse(data);
+  const categories = await prisma.category.findMany({
+    where: { isActive: true },
+    orderBy: { displayOrder: 'asc' },
+    include: {
+      menuItems: {
+        orderBy: { displayOrder: 'asc' },
+      }
+    }
+  });
+
+  const formattedCategories = categories.map(cat => ({
+    id: cat.slug,
+    name: cat.name,
+    description: "",
+    sortOrder: cat.displayOrder,
+    items: cat.menuItems.map(item => ({
+      id: item.slug,
+      name: item.name,
+      description: item.description,
+      basePriceCents: item.priceCents,
+      priceStatus: "needs-confirmation",
+      needsReview: true,
+      image: item.imageUrl || undefined,
+      dietary: item.dietary,
+      spicy: item.spicy,
+      allergens: item.allergens,
+      available: item.isAvailable,
+      sortOrder: item.displayOrder,
+    }))
+  }));
+
+  return {
+    schemaVersion: 1,
+    currency: "USD",
+    menuType: "restaurant",
+    publicationStatus: "draft",
+    isProvisional: true,
+    source: "September 2, 2026 Wix website audit",
+    categories: formattedCategories
+  };
 };

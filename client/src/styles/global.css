@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 @theme {
   --color-brand-saffron: #F97316;
@@ -18,9 +18,4 @@ body {
   font-family: var(--font-sans);
 }
 
-.bg-marble {
-  background-color: #FAFAFA;
-  background-image: radial-gradient(circle at 100% 50%, transparent 20%, rgba(249, 115, 22, 0.03) 21%, rgba(249, 115, 22, 0.03) 34%, transparent 35%, transparent),
-                    radial-gradient(circle at 0% 50%, transparent 20%, rgba(249, 115, 22, 0.03) 21%, rgba(249, 115, 22, 0.03) 34%, transparent 35%, transparent);
-  background-size: 120px 120px;
-}
+

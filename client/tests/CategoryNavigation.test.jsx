@@ -22,6 +22,32 @@ global.ResizeObserver = class ResizeObserver {
   disconnect() {}
 };
 
+const observers = new Set();
+global.IntersectionObserver = class IntersectionObserver {
+  constructor(cb) {
+    this.cb = cb;
+    this.elements = new Set();
+    observers.add(this);
+  }
+  observe(el) { this.elements.add(el); }
+  unobserve(el) { this.elements.delete(el); }
+  disconnect() { observers.delete(this); }
+};
+
+function triggerScroll(isIntersecting) {
+  act(() => {
+    observers.forEach(obs => {
+      const sentinel = Array.from(obs.elements).find(el => el && el.getAttribute('data-testid') === 'sentinel');
+      if (sentinel) {
+        obs.cb([{
+          isIntersecting,
+          boundingClientRect: { top: isIntersecting ? 100 : 0 }
+        }]);
+      }
+    });
+  });
+}
+
 describe('CategoryNavigation', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -197,14 +223,35 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     expect(appLink).toHaveAttribute('aria-current', 'page'); // fallback to first
   });
 
-  it('15. Existing menu sections and items still render', async () => {
+  it('Passing the hero sentinel activates the sticky horizontal bar', async () => {
     menuService.fetchMenu.mockResolvedValue({ menuType: 'restaurant', categories: mockCategories });
     render(<MenuPage />);
     
     await screen.findByRole('heading', { name: 'Appetizers' });
-    expect(screen.getByText('A1')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Chaat' })).toBeInTheDocument();
-    expect(screen.getByText('C1')).toBeInTheDocument();
+    triggerScroll(false);
+    
+    const stickyBar = screen.getByTestId('sticky-bar');
+    expect(stickyBar).not.toHaveClass('opacity-0');
+    expect(stickyBar).toHaveClass('opacity-100');
+  });
+
+  it('The sticky bar uses the header offset instead of top: 0', async () => {
+    menuService.fetchMenu.mockResolvedValue({ menuType: 'restaurant', categories: mockCategories });
+    render(<MenuPage />);
+    
+    await screen.findByRole('heading', { name: 'Appetizers' });
+    const stickyBar = screen.getByTestId('sticky-bar');
+    expect(stickyBar.style.top).toBe('var(--mobile-header-height, 64px)');
+  });
+
+  it('15. Existing menu sections and items still render', async () => {
+    menuService.fetchMenu.mockResolvedValue({ menuType: 'restaurant', categories: mockCategories });
+    render(<MenuPage />);
+    
+    expect(await screen.findByRole('heading', { name: 'Appetizers' })).toBeInTheDocument();
+    expect(await screen.findByText('A1')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Chaat' })).toBeInTheDocument();
+    expect(await screen.findByText('C1')).toBeInTheDocument();
   });
 
   it('16. Horizontal active-tab scrolling is requested when required', async () => {
@@ -212,11 +259,11 @@ describe('useCategoryScroll & MenuPage Integration', () => {
     render(<MenuPage />);
     
     await screen.findByRole('heading', { name: 'Appetizers' });
+    triggerScroll(false); // Enable sticky bar so horizontal scrolling happens
     
-    const chaatLink = await screen.findByRole('link', { name: 'Chaat' });
-    fireEvent.click(chaatLink);
+    const links = screen.getByTestId('progress-categories').querySelectorAll('a');
+    fireEvent.click(links[1]); // Chaat
     
-    // Vertical section scroll
     expect(window.HTMLElement.prototype.scrollIntoView).toHaveBeenCalled();
     // Horizontal nav tab scroll
     expect(window.HTMLElement.prototype.scrollTo).toHaveBeenCalled();

@@ -80,3 +80,8 @@
   - Keyboard focus via Tab correctly activates the border glow.
   - The decorative border resides fully behind the item content without blocking clicks or lowering text contrast.
 - **Automated Tests**: Card layout and rendering tests all pass (verified image, name, price, fallback). 52 client tests passing. 23 server tests passing. Client lint and build cleanly.
+
+### Menu Cards Verification
+- Confirmed premium borderless style on 320px up to Desktop viewports.
+- Verified image frame has consistent rounded clipping and background.
+- Ensured long names wrap accurately (2 lines) and pure white background persists without horizontal overflow.

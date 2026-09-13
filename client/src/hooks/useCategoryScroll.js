@@ -51,8 +51,15 @@ export const useCategoryScroll = (categories, loading, error) => {
     if (typeof IntersectionObserver !== 'undefined') {
       if (observerRef.current) observerRef.current.disconnect();
 
+      const getOffset = () => {
+        if (typeof window === 'undefined') return 150;
+        const header = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--mobile-header-height')) || 64;
+        const nav = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--category-nav-height')) || 48;
+        return header + nav + 16;
+      };
+
       const options = {
-        rootMargin: '-150px 0px -60% 0px',
+        rootMargin: `-${getOffset()}px 0px -60% 0px`,
         threshold: 0
       };
 

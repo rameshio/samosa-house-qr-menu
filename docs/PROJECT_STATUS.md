@@ -21,4 +21,5 @@
 - [ ] Phase 13: Responsive desktop design
 - [ ] Phase 14: Accessibility and performance
 - [ ] Phase 15: Remaining Samosa House website pages
-- [ ] Phase 16: Production deployment
+- [ ] Phase 16: Backend Admin Dashboard & PostgreSQL (In Progress - Backend Core complete)
+- [ ] Phase 17: Production deployment

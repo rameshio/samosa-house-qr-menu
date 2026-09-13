@@ -58,7 +58,7 @@ test('GET /api/menu endpoints', async (t) => {
       }
       assert.ok(item.image, `Item ${item.name} is missing an image path`);
       assert.strictEqual(typeof item.image, 'string');
-      assert.ok(item.image.startsWith('/images/menu/') || item.image.startsWith('/images/menu-west-v2/'), true);
+      assert.ok(item.image.startsWith('/images/menu/') || item.image.startsWith('/images/menu-west-v2/') || item.image.startsWith('/uploads/'), true);
       
       const fsPath = `../client/public${item.image}`;
       assert.ok(fs.existsSync(fsPath), `Image file missing on disk: ${fsPath}`);
@@ -132,6 +132,11 @@ test('menuValidator checks', async (t) => {
     assert.strictEqual(validateMenu(data), true);
   });
 
+  await t.test('Upload image paths are accepted', () => {
+    const data = { ...validBase, categories: [{ id: 'c1', name: 'Cat 1', items: [{ id: 'i1', name: 'Item 1', basePriceCents: 100, priceStatus: 'confirmed', image: '/uploads/abc123def456.webp' }] }] };
+    assert.strictEqual(validateMenu(data), true);
+  });
+
   await t.test('External URLs are rejected', () => {
     const data = { ...validBase, categories: [{ id: 'c1', name: 'Cat 1', items: [{ id: 'i1', name: 'Item 1', basePriceCents: 100, priceStatus: 'confirmed', image: 'https://example.com/samosa.webp' }] }] };
     assert.throws(() => validateMenu(data), /Image path cannot be an external URL/);
@@ -140,6 +145,16 @@ test('menuValidator checks', async (t) => {
   await t.test('Unsafe traversal paths are rejected', () => {
     const data = { ...validBase, categories: [{ id: 'c1', name: 'Cat 1', items: [{ id: 'i1', name: 'Item 1', basePriceCents: 100, priceStatus: 'confirmed', image: '/images/menu/../../etc/passwd' }] }] };
     assert.throws(() => validateMenu(data), /Image path contains unsafe traversal or external segments/);
+  });
+
+  await t.test('Encoded traversal paths are rejected', () => {
+    const data = { ...validBase, categories: [{ id: 'c1', name: 'Cat 1', items: [{ id: 'i1', name: 'Item 1', basePriceCents: 100, priceStatus: 'confirmed', image: '/uploads/%2e%2e%2fetc/passwd.webp' }] }] };
+    assert.throws(() => validateMenu(data), /Image path contains invalid URL-encoded characters/);
+  });
+
+  await t.test('Backslashes are rejected', () => {
+    const data = { ...validBase, categories: [{ id: 'c1', name: 'Cat 1', items: [{ id: 'i1', name: 'Item 1', basePriceCents: 100, priceStatus: 'confirmed', image: '/uploads/\\etc\\passwd.webp' }] }] };
+    assert.throws(() => validateMenu(data), /Image path contains invalid backslash characters/);
   });
 
   await t.test('Invalid extensions are rejected', () => {
