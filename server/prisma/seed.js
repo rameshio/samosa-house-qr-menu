@@ -39,12 +39,12 @@ async function main() {
             categoryId: category.id,
             name: item.name,
             description: item.description || '',
-            priceCents: item.basePriceCents,
+            priceCents: item.basePriceCents ?? 0,
             imageUrl: item.image || null,
             isAvailable: item.available !== false,
-            dietary: item.dietary || [],
+            dietary: JSON.stringify(item.dietary || []),
             spicy: !!item.spicy,
-            allergens: item.allergens || [],
+            allergens: JSON.stringify(item.allergens || []),
             displayOrder: itemOrder,
           },
           create: {
@@ -53,12 +53,12 @@ async function main() {
             categoryId: category.id,
             name: item.name,
             description: item.description || '',
-            priceCents: item.basePriceCents,
+            priceCents: item.basePriceCents ?? 0,
             imageUrl: item.image || null,
             isAvailable: item.available !== false,
-            dietary: item.dietary || [],
+            dietary: JSON.stringify(item.dietary || []),
             spicy: !!item.spicy,
-            allergens: item.allergens || [],
+            allergens: JSON.stringify(item.allergens || []),
             displayOrder: itemOrder,
           }
         });
@@ -72,8 +72,8 @@ async function main() {
   const itemCount = await prisma.menuItem.count();
   
   console.log("Seed completed successfully.");
-  console.log("Total Categories: ${categoryCount}");
-  console.log("Total Menu Items: ${itemCount}");
+  console.log(`Total Categories: ${categoryCount}`);
+  console.log(`Total Menu Items: ${itemCount}`);
 }
 
 main()

@@ -9,3 +9,7 @@ build/
 coverage/
 client/dist/
 Poject files/
+
+# Local SQLite dev database
+server/prisma/*.db
+server/prisma/*.db-journal

@@ -1,5 +1,17 @@
 import prisma from '../../prisma/client.js';
 
+// dietary/allergens are stored as JSON-encoded strings (SQLite has no scalar lists).
+const parseJsonArray = (value) => {
+  if (Array.isArray(value)) return value;
+  if (typeof value !== 'string' || value.trim() === '') return [];
+  try {
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
+
 export const getMenuData = async () => {
   const categories = await prisma.category.findMany({
     where: { isActive: true },
@@ -24,9 +36,9 @@ export const getMenuData = async () => {
       priceStatus: "needs-confirmation",
       needsReview: true,
       image: item.imageUrl || undefined,
-      dietary: item.dietary,
+      dietary: parseJsonArray(item.dietary),
       spicy: item.spicy,
-      allergens: item.allergens,
+      allergens: parseJsonArray(item.allergens),
       available: item.isAvailable,
       sortOrder: item.displayOrder,
     }))
