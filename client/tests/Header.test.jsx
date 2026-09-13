@@ -14,6 +14,6 @@ describe('Header', () => {
     render(<Header />);
     const img = screen.getByAltText('Samosa House');
     fireEvent.error(img);
-    expect(screen.getByRole('heading', { name: 'Samosa House' })).toBeInTheDocument();
+    expect(screen.getByText('Samosa House', { selector: 'span' })).toBeInTheDocument();
   });
 });

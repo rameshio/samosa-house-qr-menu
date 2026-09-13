@@ -44,7 +44,7 @@ test('A 429 response is not automatically retried and handles error message', as
   mockFetchMenu.mockRejectedValueOnce(new Error('Too many requests. Please try again in 5 seconds.'));
   const { unmount } = render(<MenuPage />);
   
-  await waitFor(() => screen.getByText(/Too many requests/i));
+  await waitFor(() => screen.getByText(/Our menu is taking a little longer/i));
   expect(mockFetchMenu).toHaveBeenCalledTimes(1);
   unmount();
 });

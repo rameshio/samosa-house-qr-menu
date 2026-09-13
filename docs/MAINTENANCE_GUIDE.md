@@ -6,7 +6,7 @@ The Samosa House QR Menu is a full-stack web application designed for mobile and
 - **Backend**: Powered by **Node.js** and **Express** to provide a secure API layer.
 - **Data Source**: The menu is driven entirely by a static **JSON** file, avoiding the complexity of a database.
 - **Development Mode**: Uses Vite's hot-reloading server alongside the Express server, allowing instant feedback as you code.
-- **Production Docker Mode**: Packages the pre-built React frontend and the Node.js backend into a single container serving everything on port 8080.
+- **Production Mode**: Uses native Node.js Express server to serve both backend API and static frontend.
 
 ## 2. How the Application Works
 The application fetches menu data from the server and paints it onto the screen. Here is the exact data flow:
@@ -187,18 +187,6 @@ Navigate to the `client/` or `server/` directories to run these:
 - **Running server tests**: `npm run test`
 - **Running lint**: `npm run lint`
 - **Creating a production build**: `npm run build`
-
-## 16. Docker Workflow
-- **Why Docker must be rebuilt**: Docker images are sealed snapshots. Editing a local file does not affect an already-built image. You must rebuild the image to package your new code and JSON data.
-- **Exact build command**: `docker build -t samosa-house-preview:west-v2 .`
-- **Exact temporary container command**: `docker run -d --name samosa-preview -p 8080:8080 samosa-house-preview:west-v2`
-- **How to view logs**: `docker logs samosa-preview`
-- **How to stop the exact preview container**: `docker rm -f samosa-preview`
-- **Localhost URL**: Available on your own machine at `http://localhost:8080`.
-- **Local Wi-Fi URL concept**: Available to devices on your exact same Wi-Fi network (e.g., `http://10.0.0.X:8080`).
-- **Why a private IP does not work externally**: Private IPs are confined to your home router. A friend in another location cannot access it.
-- **Temporary Cloudflare tunnel**: We use cloudflared to expose localhost:8080 securely to the public internet via a `.trycloudflare.com` link.
-- **Security warning**: Anyone who guesses or receives your temporary Cloudflare link can access your local application while the tunnel is running.
 
 ## 17. Safe Git Workflow
 1. **Inspect status**: `git status --short` to ensure your working tree is clean.

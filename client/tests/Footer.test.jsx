@@ -14,9 +14,9 @@ describe('Footer', () => {
     const logoImg = screen.queryByRole('img', { name: /samosa house/i });
     expect(logoImg).not.toBeInTheDocument();
     
-    // Ensure the other static text is still present
-    expect(screen.getByText(/Authentic Indian Cuisine/i)).toBeInTheDocument();
-    expect(screen.getByText(/100% Vegetarian Options/i)).toBeInTheDocument();
-    expect(screen.getByText(/Temporary Contact Information/i)).toBeInTheDocument();
+    // Ensure the new static text is present
+    expect(screen.getByText(/EST\. 1979/i)).toBeInTheDocument();
+    expect(screen.getByText(/11510 W Washington Blvd/i)).toBeInTheDocument();
+    expect(screen.getByText(/\(310\) 398-6766/i)).toBeInTheDocument();
   });
 });

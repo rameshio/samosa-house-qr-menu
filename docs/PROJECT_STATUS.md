@@ -23,3 +23,6 @@
 - [ ] Phase 15: Remaining Samosa House website pages
 - [ ] Phase 16: Backend Admin Dashboard & PostgreSQL (In Progress - Backend Core complete)
 - [ ] Phase 17: Production deployment
+
+## Static Deployment
+The public menu is currently configured for a backend-less static deployment (e.g. Vercel Free Tier). The frontend loads data directly from public/menu.json. The Admin Dashboard is disabled in this environment. Menu updates require exporting the database to menu.json locally and creating a new build/deployment.

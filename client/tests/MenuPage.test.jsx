@@ -45,7 +45,7 @@ describe('MenuPage', () => {
       expect(screen.getByRole('heading', { name: 'Appetizers' })).toBeInTheDocument();
     });
     
-    expect(screen.getByRole('heading', { name: /Authentic Flavors/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Indian Vegetarian Favorites/i })).toBeInTheDocument();
     expect(screen.getByText('Menu items and prices are being confirmed and may vary by location.')).toBeInTheDocument();
     expect(screen.getByText('Samosa')).toBeInTheDocument();
     expect(screen.getByText('$2.25')).toBeInTheDocument();
@@ -57,11 +57,11 @@ describe('MenuPage', () => {
     render(<MenuPage />);
     
     await waitFor(() => {
-      expect(screen.getByRole('heading', { name: /unable to load menu/i })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: /our menu is taking a little longer/i })).toBeInTheDocument();
     });
     
     menuService.fetchMenu.mockResolvedValueOnce({
-      categories: [{ id: "c1", name: "Main", items: [] }]
+      categories: [{ id: "c1", name: "Main", items: [{ id: "m1", name: "Mock Item" }] }]
     });
     
     fireEvent.click(screen.getByRole('button', { name: /retry/i }));
@@ -77,7 +77,7 @@ describe('MenuPage', () => {
     render(<MenuPage />);
     
     await waitFor(() => {
-      expect(screen.getByRole('heading', { name: /unable to load menu/i })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: /our menu is taking a little longer/i })).toBeInTheDocument();
     });
   });
 

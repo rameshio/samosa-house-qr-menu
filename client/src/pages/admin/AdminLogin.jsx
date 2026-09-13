@@ -22,7 +22,7 @@ export default function AdminLogin() {
     try {
       await login(email, password);
       navigate('/admin');
-    } catch (err) {
+    } catch {
       setError('Invalid email or password.');
     } finally {
       setLoading(false);

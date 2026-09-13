@@ -12,18 +12,7 @@ export default function AdminLayout() {
     return <Outlet />;
   }
 
-  const NavLinks = () => (
-    <nav className="flex flex-col space-y-1">
-      <Link to="/admin" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Menu List</Link>
-      <Link to="/admin/menu/new" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin/menu/new' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Create Item</Link>
-      {user?.role === 'OWNER' && (
-        <>
-          <Link to="/admin/staff" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin/staff' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Staff Manager</Link>
-          <Link to="/admin/audit" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin/audit' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Audit History</Link>
-        </>
-      )}
-    </nav>
-  );
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row font-sans">
@@ -41,7 +30,16 @@ export default function AdminLayout() {
           <span className="text-xl font-bold text-gray-800 tracking-tight">Samosa House</span>
         </div>
         <div className="flex-1 overflow-y-auto p-4">
-          <NavLinks />
+        <nav className="flex flex-col space-y-1">
+          <Link to="/admin" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Menu List</Link>
+          <Link to="/admin/menu/new" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin/menu/new' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Create Item</Link>
+          {user?.role === 'OWNER' && (
+            <>
+              <Link to="/admin/staff" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin/staff' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Staff Manager</Link>
+              <Link to="/admin/audit" className={`px-4 py-2 rounded-md font-medium ${location.pathname === '/admin/audit' ? 'bg-orange-100 text-orange-700' : 'text-gray-600 hover:bg-gray-50'}`}>Audit History</Link>
+            </>
+          )}
+        </nav>
         </div>
         <div className="p-4 border-t border-gray-200">
           <div className="text-sm font-medium text-gray-900 truncate">{user?.displayName}</div>

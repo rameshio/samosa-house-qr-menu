@@ -1,0 +1,665 @@
+{
+  "source": "https://satisfied-liberation-production-b1ee.up.railway.app/",
+  "restaurant": {
+    "name": "Samosa House",
+    "tagline": "Indian Vegetarian & Vegan • Culver City • Since 1979",
+    "note": "We Do Catering! Call (310) 398-6766 • contactus@samosahouse.com",
+    "phone": "(310) 398-6766",
+    "email": "contactus@samosahouse.com",
+    "banner": "/menu/banner.jpg",
+    "address": "11510 W Washington Blvd, Culver City, CA 90232",
+    "cityStateZip": "Culver City, Los Angeles, CA 90232",
+    "hours": "Open Daily 11:00 AM – 9:30 PM",
+    "otterUrl": "https://order.tryotter.com/",
+    "uberUrl": "https://www.ubereats.com/store/samosa-house-west/eP5-T7-uQo-V92l25zCawQ",
+    "rating": "4.7",
+    "reviewCount": "3,500+",
+    "established": "1979"
+  },
+  "menu": [
+    {
+      "id": "appetizers",
+      "category": "Appetizers",
+      "shortDesc": "Crisp golden savories & fritters served with house-made tamarind & cilantro-mint chutneys.",
+      "items": [
+        {
+          "id": 101,
+          "name": "Artisan Samosa",
+          "price": 2.25,
+          "description": "Our world-famous golden pyramid pastry hand-folded and stuffed with roasted cumin potatoes and sweet green peas. Served with sweet tamarind and spicy mint chutneys.",
+          "image": "/menu/samosa.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ],
+          "signature": true
+        },
+        {
+          "id": 102,
+          "name": "Spinach Pakora",
+          "price": 6.99,
+          "description": "Fresh baby spinach leaves tossed in spiced roasted besan batter and flash-fried to golden, airy perfection.",
+          "image": "/menu/spinach-pakora.jpg",
+          "tags": [
+            "v",
+            "gf"
+          ]
+        },
+        {
+          "id": 103,
+          "name": "Cauliflower Pakora",
+          "price": 6.99,
+          "description": "Tender cauliflower florets seasoned with ajwain carom seeds, ground coriander, and turmeric, fried crisp.",
+          "image": "/menu/cauliflower-pakora.jpg",
+          "tags": [
+            "v",
+            "gf"
+          ]
+        },
+        {
+          "id": 104,
+          "name": "Chili Pakora",
+          "price": 6.49,
+          "description": "Stuffed Anaheim peppers dipped in savory spiced chickpea flour batter and fried golden brown.",
+          "image": "/menu/chilli-pakora.jpg",
+          "tags": [
+            "v",
+            "spicy",
+            "gf"
+          ]
+        },
+        {
+          "id": 105,
+          "name": "Dahi Wada",
+          "price": 6.99,
+          "description": "Velvety lentil dumplings soaked in chilled spiced artisan yogurt, garnished with roasted cumin, paprika, and contrasting chutneys.",
+          "image": "/menu/dahi-puri.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 106,
+          "name": "Hara Bhara Kabab",
+          "price": 2.99,
+          "description": "Pan-seared emerald patties of fresh spinach, green peas, and potatoes studded with roasted cashew nuts.",
+          "image": "/menu/hara-bhara-kabab.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 107,
+          "name": "Sabudana Wada",
+          "price": 2.99,
+          "description": "Traditional Maharashtrian tapioca pearl and roasted crushed peanut cakes with a crackling crisp exterior and tender center.",
+          "image": "/menu/sabudana-wada.jpg",
+          "tags": [
+            "v",
+            "gf"
+          ]
+        },
+        {
+          "id": 108,
+          "name": "Steamed Dhokla",
+          "price": 1.49,
+          "description": "Traditional Gujarati steamed savory sponge made from naturally fermented chickpea flour, tempered with mustard seeds and curry leaves.",
+          "image": "/menu/dhokla.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 109,
+          "name": "Khasta Dal Kachori",
+          "price": 3.49,
+          "description": "Flaky golden puffed pastry shell packed with slow-roasted yellow moong dal and aromatic whole spices.",
+          "image": "/menu/samosa.jpg",
+          "tags": [
+            "v"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chaat",
+      "category": "Chaat",
+      "shortDesc": "Iconic Mumbai street-side snacks bursting with sweet dates, tart tamarind, and zesty chili water.",
+      "items": [
+        {
+          "id": 201,
+          "name": "Signature Samosa Chaat",
+          "price": 5.99,
+          "description": "Crushed warm artisan samosas drenched in simmering chana masala, chilled sweet yogurt, diced sweet red onions, fresh cilantro, tamarind reduction, and crunchy chickpea sev.",
+          "image": "/menu/samosa-chaat.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ],
+          "signature": true
+        },
+        {
+          "id": 202,
+          "name": "Bhel Puri",
+          "price": 6.99,
+          "description": "Mumbai Chowpatty classic: puffed rice, crushed crisp papri wafers, fine sev, diced boiled potatoes, and red onions tossed vigorously with sweet-and-sour date chutneys.",
+          "image": "/menu/bhel-puri.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 203,
+          "name": "Papri Chaat",
+          "price": 6.49,
+          "description": "Crispy whole wheat crisps layered with spiced garbanzo beans, steamed potatoes, seasoned whipped yogurt, roasted ground cumin, and mint relish.",
+          "image": "/menu/papri-chaat.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 204,
+          "name": "Pani Puri (Gol Gappa)",
+          "price": 5.99,
+          "description": "Delicate hollow crispy semolina spheres filled with seasoned potatoes and black chickpeas, ready to be filled with chilled, herbaceous spicy-tangy mint water.",
+          "image": "/menu/pani-puri.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ]
+        },
+        {
+          "id": 205,
+          "name": "Dahi Sev Puri",
+          "price": 5.99,
+          "description": "Puffed crisp puris overflowing with spiced potatoes, sprouted pulses, chilled sweet yogurt, date chutney, and a generous blizzard of crispy sev.",
+          "image": "/menu/dahi-puri.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 206,
+          "name": "Aloo Tikki Chaat",
+          "price": 6.49,
+          "description": "Griddled golden potato medallions crowned with piping hot spiced chana masala, drizzled with yogurt and vibrant house chutneys.",
+          "image": "/menu/aloo-tikka-chaat.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 207,
+          "name": "Kachori Chaat",
+          "price": 6.49,
+          "description": "Flaky moong dal kachori gently crushed and layered with savory chickpea gravy, cooling whipped yogurt, diced onions, and cilantro.",
+          "image": "/menu/samosa-chaat.jpg",
+          "tags": [
+            "v"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "combination-plates",
+      "category": "Combination Plates",
+      "shortDesc": "Generous thali combinations featuring daily simmering homestyle curries, fragrant basmati, and hot breads.",
+      "items": [
+        {
+          "id": 301,
+          "name": "3-Item Combo (White Basmati)",
+          "price": 14.99,
+          "description": "Your choice of any three hot curries or vegetable stews from our daily deli counter. Served with aged white basmati rice, fresh tandoori naan or whole-wheat roti, and house raita or soup.",
+          "image": "/menu/combo-plate-3.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ],
+          "signature": true
+        },
+        {
+          "id": 302,
+          "name": "3-Item Combo (Brown Basmati)",
+          "price": 15.99,
+          "description": "Your choice of any three hot curries from our daily counter. Served with nutty whole-grain brown basmati rice, freshly baked bread, and cooling yogurt raita or lentil daal.",
+          "image": "/menu/combo-plate-2.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "small-plates",
+      "category": "Small Plates & Specialties",
+      "shortDesc": "Hearty North & West Indian regional classics, stuffed griddled breads, and street comfort food.",
+      "items": [
+        {
+          "id": 401,
+          "name": "Chana Bhatura",
+          "price": 10.99,
+          "description": "Slow-simmered Punjabi garbanzo bean curry cooked in black tea and pomegranate seeds, paired with two ballooned, fluffy golden bhaturas, house-pickled carrots, and spicy onions.",
+          "image": "/menu/chana-bhatura.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ],
+          "signature": true
+        },
+        {
+          "id": 402,
+          "name": "Aloo Poori",
+          "price": 8.49,
+          "description": "Traditional Delhi-style spiced tomato-potato curry served with two freshly puffed whole wheat pooris, artisanal mango pickle, and spiced yogurt.",
+          "image": "/menu/aloo-poori.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 403,
+          "name": "Pav Bhaji",
+          "price": 9.99,
+          "description": "Mumbai's beloved buttery street curry of slow-mashed vegetables, tomatoes, and house bhaji masala, served with two griddled butter-toasted brioche pav buns.",
+          "image": "/menu/wada-pav.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ]
+        },
+        {
+          "id": 404,
+          "name": "Original Wada Pav",
+          "price": 6.99,
+          "description": "The iconic Mumbai veggie burger: golden batter-fried spiced potato ball nestled inside a warm pav bun, seasoned with spicy red garlic-coconut dry chutney and green chili.",
+          "image": "/menu/wada-pav.jpg",
+          "tags": [
+            "v",
+            "spicy",
+            "popular"
+          ]
+        },
+        {
+          "id": 405,
+          "name": "Stuffed Griddle Paratha",
+          "price": 10.99,
+          "description": "Freshly hand-rolled whole wheat layered flatbread stuffed with seasoned potatoes or spiced cauliflower, griddled crisp and served with butter, raita, and mixed achar.",
+          "image": "/menu/paratha.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 406,
+          "name": "Royal Vegetable Biryani",
+          "price": 9.98,
+          "description": "Long-grain basmati rice layered with garden vegetables, caramelized onions, saffron milk, whole green cardamom, and cloves, slow cooked 'dum' style.",
+          "image": "/menu/white-rice.jpg",
+          "tags": [
+            "v",
+            "spicy",
+            "gf"
+          ]
+        },
+        {
+          "id": 407,
+          "name": "Desi Veggie Burger",
+          "price": 6.99,
+          "description": "Crispy spiced vegetable and potato cutlet layered with lettuce, ripe tomato, sweet onion, and house masala mint mayo on a toasted sesame bun.",
+          "image": "/menu/hara-bhara-kabab.jpg",
+          "tags": [
+            "v"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "south-indian",
+      "category": "South Indian Dosas & Crêpes",
+      "shortDesc": "Fermented rice & lentil stone-ground batter, griddled paper-thin and served with sambar & coconut dip.",
+      "items": [
+        {
+          "id": 501,
+          "name": "Crispy Paper Dosa",
+          "price": 8.49,
+          "description": "Giant, feather-light golden crêpe made from fermented lentil-rice batter. Served with piping hot lentil vegetable stew (sambar) and fresh coconut-curry leaf chutney.",
+          "image": "/menu/masala-dosa.jpg",
+          "tags": [
+            "v",
+            "gf"
+          ]
+        },
+        {
+          "id": 502,
+          "name": "Classic Masala Dosa",
+          "price": 11.99,
+          "description": "Crispy fermented rice and lentil crêpe rolled around our signature turmeric-spiced mashed potato and caramelized mustard onion filling. Served with hot sambar and coconut chutney.",
+          "image": "/menu/masala-dosa.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ],
+          "signature": true
+        },
+        {
+          "id": 503,
+          "name": "Mysore Masala Dosa",
+          "price": 12.49,
+          "description": "Signature South Indian crêpe smeared with fiery roasted red chili, garlic, and lentil paste, filled with spiced masala potatoes and roasted cashews.",
+          "image": "/menu/masala-dosa.jpg",
+          "tags": [
+            "v",
+            "spicy"
+          ]
+        },
+        {
+          "id": 504,
+          "name": "Spring Vegetable Dosa",
+          "price": 11.49,
+          "description": "Thin crispy dosa stuffed with wok-tossed shredded cabbage, bell peppers, carrots, and scallions with mild Indo-Chinese seasoning.",
+          "image": "/menu/masala-dosa.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 505,
+          "name": "Onion Chilli Uttapam",
+          "price": 10.99,
+          "description": "Thick, pillowy fermented rice-lentil pancake embedded with finely chopped sweet red onions and spicy green serrano chilies.",
+          "image": "/menu/paratha.jpg",
+          "tags": [
+            "v",
+            "spicy",
+            "gf"
+          ]
+        },
+        {
+          "id": 506,
+          "name": "Tomato Cilantro Uttapam",
+          "price": 10.99,
+          "description": "Thick savory pancake studded with ripe juicy tomatoes, fragrant cilantro leaves, and cracked cumin seeds.",
+          "image": "/menu/paratha.jpg",
+          "tags": [
+            "v",
+            "gf"
+          ]
+        },
+        {
+          "id": 507,
+          "name": "Idli Wada Combo Plate",
+          "price": 6.99,
+          "description": "A pair of cloud-soft steamed savory rice cakes (idli) alongside a crispy golden lentil donut (medu wada), accompanied by warm sambar and coconut chutney.",
+          "image": "/menu/sabudana-wada.jpg",
+          "tags": [
+            "v",
+            "gf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "category": "Artisan Drinks & Lassis",
+      "shortDesc": "Refreshing probiotic yogurt smoothies, cooling infused syrups, and freshly steeped spiced masala chai.",
+      "items": [
+        {
+          "id": 701,
+          "name": "Handcrafted Mango Lassi",
+          "price": 4.49,
+          "description": "Our bestselling smooth, chilled yogurt drink blended with rich Alphonso mango pulp, green cardamom, and a touch of sweetness.",
+          "image": "/menu/mango-lassi.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ],
+          "signature": true
+        },
+        {
+          "id": 702,
+          "name": "100% Vegan Mango Lassi",
+          "price": 4.99,
+          "description": "Plant-based indulgence crafted with dairy-free cultured coconut yogurt, sweet mango nectar, and aromatic cardamom.",
+          "image": "/menu/mango-lassi.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ]
+        },
+        {
+          "id": 703,
+          "name": "Royal Rose Milk",
+          "price": 4.49,
+          "description": "Delicate and refreshing chilled milk scented with natural Damask rose petal syrup and sweet basil seeds.",
+          "image": "/menu/mango-lassi.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 704,
+          "name": "Sweet Cardamom Lassi",
+          "price": 4.49,
+          "description": "Traditional artisan churned sweet yogurt elixir flavored with fragrant kewra water and freshly ground cardamom.",
+          "image": "/menu/mango-lassi.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 705,
+          "name": "Salted Cumin Lassi",
+          "price": 4.49,
+          "description": "Cooling savory probiotic drink tempered with Himalayan pink rock salt, roasted crushed cumin, and fresh mint leaves.",
+          "image": "/menu/mango-lassi.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 706,
+          "name": "Fresh Masala Chai (Small)",
+          "price": 1.59,
+          "description": "Slow-simmered Assam black tea brewed with fresh crushed ginger root, cracked cardamom pods, cinnamon, and whole milk.",
+          "image": "/menu/banner.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 707,
+          "name": "Fresh Masala Chai (Large)",
+          "price": 2.95,
+          "description": "Generous 16oz cup of our slow-simmered aromatic masala chai, steeped fresh on the stove all day.",
+          "image": "/menu/banner.jpg",
+          "tags": [
+            "v"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dessert",
+      "category": "Traditional Indian Sweets (Mithai)",
+      "shortDesc": "Handcrafted artisanal mithai made fresh with milk fudge, pistachios, saffron, and silver leaf.",
+      "items": [
+        {
+          "id": 801,
+          "name": "Artisan Mithai (Single Piece)",
+          "price": 1.49,
+          "description": "Hand-select from our daily glass counter: warm Gulab Jamun, spongy Rasgulla, silver-leaf Kaju Katli, Besan Ladoo, or Pista Peda.",
+          "image": "/menu/dhokla.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 802,
+          "name": "Gourmet Sweet Box (1 lb)",
+          "price": 14.99,
+          "description": "One pound custom gift assortment box filled with freshly made traditional Indian sweets of your choice from our bakery case.",
+          "image": "/menu/dhokla.jpg",
+          "tags": [
+            "v"
+          ]
+        },
+        {
+          "id": 803,
+          "name": "Fresh Saffron Jalebi (1 lb)",
+          "price": 13.99,
+          "description": "One full pound of freshly piped spiral batter fried golden-crisp and immediately immersed in warm, cardamom and saffron scented sugar syrup.",
+          "image": "/menu/dhokla.jpg",
+          "tags": [
+            "v",
+            "popular"
+          ],
+          "signature": true
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/aloo-poori.jpg",
+      "local_path": "menu/aloo-poori.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/aloo-tikka-chaat.jpg",
+      "local_path": "menu/aloo-tikka-chaat.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/banner.jpg",
+      "local_path": "menu/banner.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/bhel-puri.jpg",
+      "local_path": "menu/bhel-puri.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/cauliflower-pakora.jpg",
+      "local_path": "menu/cauliflower-pakora.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/chana-bhatura.jpg",
+      "local_path": "menu/chana-bhatura.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/chilli-pakora.jpg",
+      "local_path": "menu/chilli-pakora.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/combo-plate-2.jpg",
+      "local_path": "menu/combo-plate-2.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/combo-plate-3.jpg",
+      "local_path": "menu/combo-plate-3.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/dahi-puri.jpg",
+      "local_path": "menu/dahi-puri.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/dhokla.jpg",
+      "local_path": "menu/dhokla.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/hara-bhara-kabab.jpg",
+      "local_path": "menu/hara-bhara-kabab.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/mango-lassi.jpg",
+      "local_path": "menu/mango-lassi.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/masala-dosa.jpg",
+      "local_path": "menu/masala-dosa.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/pani-puri.jpg",
+      "local_path": "menu/pani-puri.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/papri-chaat.jpg",
+      "local_path": "menu/papri-chaat.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/paratha.jpg",
+      "local_path": "menu/paratha.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/sabudana-wada.jpg",
+      "local_path": "menu/sabudana-wada.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/samosa-chaat.jpg",
+      "local_path": "menu/samosa-chaat.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/samosa.jpg",
+      "local_path": "menu/samosa.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/spinach-pakora.jpg",
+      "local_path": "menu/spinach-pakora.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/wada-pav.jpg",
+      "local_path": "menu/wada-pav.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/menu/white-rice.jpg",
+      "local_path": "menu/white-rice.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/photos/interior-window-seating.jpg",
+      "local_path": "photos/interior-window-seating.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/photos/market-interior.jpg",
+      "local_path": "photos/market-interior.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/photos/rotating-1.jpg",
+      "local_path": "photos/rotating-1.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/photos/rotating-2.jpg",
+      "local_path": "photos/rotating-2.jpg",
+      "status": "downloaded"
+    },
+    {
+      "source_url": "https://satisfied-liberation-production-b1ee.up.railway.app/photos/storefront-corner-day.jpg",
+      "local_path": "photos/storefront-corner-day.jpg",
+      "status": "downloaded"
+    }
+  ]
+}

@@ -22,10 +22,6 @@ export const updateMenuItem = async (req, res) => {
   const { version, isAvailable, ...updates } = req.body;
 
   try {
-    const item = await prisma.menuItem.findUnique({ where: { id } });
-    if (!item) return res.status(404).json({ success: false, message: 'Item not found' });
-    if (item.version !== version) return res.status(409).json({ success: false, message: 'Conflict: Document has been modified by another user' });
-
     // Handle isAvailable immediately (does not require draft/publish)
     const dataToUpdate = { version: { increment: 1 } };
     
@@ -41,10 +37,20 @@ export const updateMenuItem = async (req, res) => {
       if (updates.imageUrl !== undefined) dataToUpdate.draftImageUrl = updates.imageUrl;
     }
 
-    const updated = await prisma.menuItem.update({
-      where: { id },
+    // ATOMIC UPDATE: updateMany allows non-unique fields (like version) in the where clause.
+    const result = await prisma.menuItem.updateMany({
+      where: { id, version },
       data: dataToUpdate
     });
+
+    if (result.count === 0) {
+      // Check if it exists at all to distinguish 404 from 409
+      const exists = await prisma.menuItem.findUnique({ where: { id } });
+      if (!exists) return res.status(404).json({ success: false, message: 'Item not found' });
+      return res.status(409).json({ success: false, message: 'Conflict: Document has been modified by another user' });
+    }
+
+    const updated = await prisma.menuItem.findUnique({ where: { id } });
 
     await prisma.auditLog.create({
       data: {
@@ -52,7 +58,7 @@ export const updateMenuItem = async (req, res) => {
         action: 'UPDATE_DRAFT',
         entityType: 'MenuItem',
         entityId: id,
-        summary: `Updated menu item ${item.name} (Draft)`
+        summary: `Updated menu item ${updated.name} (Draft)`
       }
     });
 
@@ -110,24 +116,28 @@ export const publishMenu = async (req, res) => {
   try {
     const draftItems = await prisma.menuItem.findMany({ where: { hasDraftChanges: true } });
     
-    // In Prisma, we have to loop to update fields dynamically or do a complex SQL
-    for (const item of draftItems) {
-      await prisma.menuItem.update({
-        where: { id: item.id },
-        data: {
-          name: item.draftName || item.name,
-          description: item.draftDescription ?? item.description,
-          priceCents: item.draftPriceCents ?? item.priceCents,
-          imageUrl: item.draftImageUrl ?? item.imageUrl,
-          hasDraftChanges: false,
-          draftName: null,
-          draftDescription: null,
-          draftPriceCents: null,
-          draftImageUrl: null,
-          version: { increment: 1 }
+    await prisma.$transaction(async (tx) => {
+      for (const item of draftItems) {
+        const result = await tx.menuItem.updateMany({
+          where: { id: item.id, version: item.version },
+          data: {
+            name: item.draftName || item.name,
+            description: item.draftDescription ?? item.description,
+            priceCents: item.draftPriceCents ?? item.priceCents,
+            imageUrl: item.draftImageUrl ?? item.imageUrl,
+            hasDraftChanges: false,
+            draftName: null,
+            draftDescription: null,
+            draftPriceCents: null,
+            draftImageUrl: null,
+            version: { increment: 1 }
+          }
+        });
+        if (result.count === 0) {
+          throw new Error('409_CONFLICT');
         }
-      });
-    }
+      }
+    });
 
     await prisma.auditLog.create({
       data: {
@@ -141,6 +151,9 @@ export const publishMenu = async (req, res) => {
 
     res.json({ success: true, message: 'Menu published' });
   } catch (err) {
+    if (err.message === '409_CONFLICT') {
+      return res.status(409).json({ success: false, message: 'Conflict: Document has been modified by another user' });
+    }
     res.status(500).json({ success: false, message: 'Failed to publish menu' });
   }
 };

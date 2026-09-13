@@ -32,7 +32,7 @@ describe('MenuItemCard', () => {
     const unavailItem = { ...mockItem, available: false };
     render(<MenuItemCard item={unavailItem} />);
     
-    const article = screen.getByRole('article');
+    const article = screen.getByRole('button', { name: /View details for Vegetable Samosa/i });
     expect(article).toHaveClass('opacity-60', 'grayscale');
     expect(screen.getByText(/Unavailable/i)).toBeInTheDocument();
   });

@@ -1,0 +1,772 @@
+{
+  "success": true,
+  "data": {
+    "schemaVersion": 1,
+    "currency": "USD",
+    "menuType": "restaurant",
+    "publicationStatus": "draft",
+    "isProvisional": true,
+    "source": "September 2, 2026 Wix website audit",
+    "categories": [
+      {
+        "id": "appetizers",
+        "name": "Appetizers",
+        "description": "",
+        "sortOrder": 1,
+        "items": [
+          {
+            "id": "samosa",
+            "name": "Samosa",
+            "description": "Our world-famous golden pyramid pastry hand-folded and stuffed with roasted cumin potatoes and sweet green peas. Served with sweet tamarind and spicy mint chutneys.",
+            "basePriceCents": 225,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/samosa.webp",
+            "dietary": [
+              "houseFavorite",
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "spinach-pakora",
+            "name": "Spinach Pakora",
+            "description": "Fresh baby spinach leaves tossed in spiced roasted besan batter and flash-fried to golden, airy perfection.",
+            "basePriceCents": 544,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/spinach-pakora.webp",
+            "dietary": [
+              "glutenFree",
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "cauliflower-pakora",
+            "name": "Cauliflower Pakora",
+            "description": "Tender cauliflower florets seasoned with ajwain carom seeds, ground coriander, and turmeric, fried crisp.",
+            "basePriceCents": 644,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/cauliflower-pakora.webp",
+            "dietary": [
+              "glutenFree",
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 3
+          },
+          {
+            "id": "chilli-pakora",
+            "name": "Chilli Pakora",
+            "description": "",
+            "basePriceCents": 549,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/chilli-pakora.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 4
+          },
+          {
+            "id": "dahi-wada",
+            "name": "Dahi Wada",
+            "description": "Velvety lentil dumplings soaked in chilled spiced artisan yogurt, garnished with roasted cumin, paprika, and contrasting chutneys.",
+            "basePriceCents": 549,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/dahi-wada.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 5
+          },
+          {
+            "id": "hara-bara-kabab",
+            "name": "Hara Bara Kabab",
+            "description": "Pan-seared emerald patties of fresh spinach, green peas, and potatoes studded with roasted cashew nuts.",
+            "basePriceCents": 225,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/hara-bara-kabab.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 6
+          },
+          {
+            "id": "sabudana-wada",
+            "name": "Sabudana Wada",
+            "description": "Traditional Maharashtrian tapioca pearl and roasted crushed peanut cakes with a crackling crisp exterior and tender center.",
+            "basePriceCents": 225,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/sabudana-wada.webp",
+            "dietary": [
+              "glutenFree",
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 7
+          },
+          {
+            "id": "dhokla",
+            "name": "Dhokla",
+            "description": "Traditional Gujarati steamed savory sponge made from naturally fermented chickpea flour, tempered with mustard seeds and curry leaves.",
+            "basePriceCents": 149,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/dhokla.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 8
+          },
+          {
+            "id": "kachori",
+            "name": "Kachori",
+            "description": "Flaky golden puffed pastry shell packed with slow-roasted yellow moong dal and aromatic whole spices.",
+            "basePriceCents": 349,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/kachori.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 9
+          }
+        ]
+      },
+      {
+        "id": "chaat",
+        "name": "Chaat",
+        "description": "",
+        "sortOrder": 2,
+        "items": [
+          {
+            "id": "samosa-chaat",
+            "name": "Samosa Chaat",
+            "description": "Crushed warm artisan samosas drenched in simmering chana masala, chilled sweet yogurt, diced sweet red onions, fresh cilantro, tamarind reduction, and crunchy chickpea sev.",
+            "basePriceCents": 544,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/samosa-chaat.webp",
+            "dietary": [
+              "houseFavorite"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "bhel-puri",
+            "name": "Bhel Puri",
+            "description": "Mumbai Chowpatty classic: puffed rice, crushed crisp papri wafers, fine sev, diced boiled potatoes, and red onions tossed vigorously with sweet-and-sour date chutneys.",
+            "basePriceCents": 544,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/bhel-puri.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "papri-chaat",
+            "name": "Papri Chaat",
+            "description": "Crispy whole wheat crisps layered with spiced garbanzo beans, steamed potatoes, seasoned whipped yogurt, roasted ground cumin, and mint relish.",
+            "basePriceCents": 449,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/papri-chaat.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 3
+          },
+          {
+            "id": "pani-puri",
+            "name": "Pani Puri",
+            "description": "Delicate hollow crispy semolina spheres filled with seasoned potatoes and black chickpeas, ready to be filled with chilled, herbaceous spicy-tangy mint water.",
+            "basePriceCents": 449,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/pani-puri.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 4
+          },
+          {
+            "id": "dahi-puri",
+            "name": "Dahi Puri",
+            "description": "Puffed crisp puris overflowing with spiced potatoes, sprouted pulses, chilled sweet yogurt, date chutney, and a generous blizzard of crispy sev.",
+            "basePriceCents": 544,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/dahi-puri.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 5
+          },
+          {
+            "id": "aloo-tikki-chaat",
+            "name": "Aloo Tikki Chaat",
+            "description": "Griddled golden potato medallions crowned with piping hot spiced chana masala, drizzled with yogurt and vibrant house chutneys.",
+            "basePriceCents": 499,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/aloo-tikki-chaat.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 6
+          },
+          {
+            "id": "kachori-chaat",
+            "name": "Kachori Chaat",
+            "description": "Flaky moong dal kachori gently crushed and layered with savory chickpea gravy, cooling whipped yogurt, diced onions, and cilantro.",
+            "basePriceCents": 549,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/kachori-chaat.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 7
+          }
+        ]
+      },
+      {
+        "id": "combination-plates",
+        "name": "Combination Plates",
+        "description": "",
+        "sortOrder": 3,
+        "items": [
+          {
+            "id": "3-item-combo-white-rice",
+            "name": "3 Item Combo W/White Rice",
+            "description": "Your choice of any three hot curries or vegetable stews from our daily deli counter. Served with aged white basmati rice, fresh tandoori naan or whole-wheat roti, and house raita or soup.",
+            "basePriceCents": 1399,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/3-item-combo-white-rice.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "3-item-combo-brown-rice",
+            "name": "3 Item Combo W/Brown Rice",
+            "description": "Your choice of any three hot curries from our daily counter. Served with nutty whole-grain brown basmati rice, freshly baked bread, and cooling yogurt raita or lentil daal.",
+            "basePriceCents": 1499,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/3-item-combo-brown-rice.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "2-item-combo",
+            "name": "2 Item Combo",
+            "description": "",
+            "basePriceCents": 1099,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/2-item-combo.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 3
+          }
+        ]
+      },
+      {
+        "id": "small-plates",
+        "name": "Small Plates",
+        "description": "",
+        "sortOrder": 4,
+        "items": [
+          {
+            "id": "chana-bhatura",
+            "name": "Chana Bhatura",
+            "description": "Slow-simmered Punjabi garbanzo bean curry cooked in black tea and pomegranate seeds, paired with two ballooned, fluffy golden bhaturas, house-pickled carrots, and spicy onions.",
+            "basePriceCents": 907,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/chana-bhatura.webp",
+            "dietary": [
+              "houseFavorite",
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "aloo-poori",
+            "name": "Aloo Poori",
+            "description": "Traditional Delhi-style spiced tomato-potato curry served with two freshly puffed whole wheat pooris, artisanal mango pickle, and spiced yogurt.",
+            "basePriceCents": 849,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/aloo-poori.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "pav-bhaji",
+            "name": "Pav Bhaji",
+            "description": "Mumbai's beloved buttery street curry of slow-mashed vegetables, tomatoes, and house bhaji masala, served with two griddled butter-toasted brioche pav buns.",
+            "basePriceCents": 907,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/pav-bhaji.webp",
+            "dietary": [
+              "houseFavorite",
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 3
+          },
+          {
+            "id": "veg-burger",
+            "name": "Veg Burger",
+            "description": "Crispy spiced vegetable and potato cutlet layered with lettuce, ripe tomato, sweet onion, and house masala mint mayo on a toasted sesame bun.",
+            "basePriceCents": 649,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/veg-burger.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 4
+          },
+          {
+            "id": "vada-pav",
+            "name": "Vada Pav",
+            "description": "The iconic Mumbai veggie burger: golden batter-fried spiced potato ball nestled inside a warm pav bun, seasoned with spicy red garlic-coconut dry chutney and green chili.",
+            "basePriceCents": 599,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/vada-pav.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 5
+          },
+          {
+            "id": "paratha-of-the-day",
+            "name": "Paratha Of The Day",
+            "description": "Freshly hand-rolled whole wheat layered flatbread stuffed with seasoned potatoes or spiced cauliflower, griddled crisp and served with butter, raita, and mixed achar.",
+            "basePriceCents": 899,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/paratha-of-the-day.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 6
+          },
+          {
+            "id": "makki-ki-roti",
+            "name": "Makki Ki Roti",
+            "description": "",
+            "basePriceCents": 999,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/makki-ki-roti.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 7
+          },
+          {
+            "id": "veg-biryani",
+            "name": "Veg Biryani",
+            "description": "Long-grain basmati rice layered with garden vegetables, caramelized onions, saffron milk, whole green cardamom, and cloves, slow cooked 'dum' style.",
+            "basePriceCents": 998,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/veg-biryani.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 8
+          }
+        ]
+      },
+      {
+        "id": "south-indian",
+        "name": "South Indian",
+        "description": "",
+        "sortOrder": 5,
+        "items": [
+          {
+            "id": "paper-dosa",
+            "name": "Paper Dosa",
+            "description": "Giant, feather-light golden crêpe made from fermented lentil-rice batter. Served with piping hot lentil vegetable stew (sambar) and fresh coconut-curry leaf chutney.",
+            "basePriceCents": 649,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/paper-dosa.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "masala-dosa",
+            "name": "Masala Dosa",
+            "description": "Crispy fermented rice and lentil crêpe rolled around our signature turmeric-spiced mashed potato and caramelized mustard onion filling. Served with hot sambar and coconut chutney.",
+            "basePriceCents": 952,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/masala-dosa.webp",
+            "dietary": [
+              "glutenFree",
+              "houseFavorite",
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "mysore-masala-dosa",
+            "name": "Mysore Masala Dosa",
+            "description": "Signature South Indian crêpe smeared with fiery roasted red chili, garlic, and lentil paste, filled with spiced masala potatoes and roasted cashews.",
+            "basePriceCents": 998,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/mysore-masala-dosa.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": true,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 3
+          },
+          {
+            "id": "spring-dosa",
+            "name": "Spring Dosa",
+            "description": "",
+            "basePriceCents": 907,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/spring-dosa.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 4
+          },
+          {
+            "id": "onion-chilli-uttapam",
+            "name": "Onion Chilli Uttapam",
+            "description": "Thick, pillowy fermented rice-lentil pancake embedded with finely chopped sweet red onions and spicy green serrano chilies.",
+            "basePriceCents": 998,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/onion-chilli-uttapam.webp",
+            "dietary": [
+              "glutenFree",
+              "vegetarian"
+            ],
+            "spicy": true,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 5
+          },
+          {
+            "id": "tomato-chilli-uttapam",
+            "name": "Tomato Chilli Uttapam",
+            "description": "Thick savory pancake studded with ripe juicy tomatoes, fragrant cilantro leaves, and cracked cumin seeds.",
+            "basePriceCents": 998,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/tomato-chilli-uttapam.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 6
+          },
+          {
+            "id": "idli-vada-plate",
+            "name": "Idli Vada Plate",
+            "description": "A pair of cloud-soft steamed savory rice cakes (idli) alongside a crispy golden lentil donut (medu wada), accompanied by warm sambar and coconut chutney.",
+            "basePriceCents": 590,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/idli-vada-plate.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 7
+          }
+        ]
+      },
+      {
+        "id": "weekend-special",
+        "name": "Weekend Special",
+        "description": "",
+        "sortOrder": 6,
+        "items": [
+          {
+            "id": "rajasthani-thali",
+            "name": "Rajasthani Thali",
+            "description": "",
+            "basePriceCents": 1599,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/rajasthani-thali.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "gujarati-thali",
+            "name": "Gujarati Thali",
+            "description": "",
+            "basePriceCents": 1599,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/gujarati-thali.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          }
+        ]
+      },
+      {
+        "id": "dessert",
+        "name": "Dessert",
+        "description": "",
+        "sortOrder": 7,
+        "items": [
+          {
+            "id": "see-refrigerator-one-piece",
+            "name": "See Refrigerator - One Piece",
+            "description": "",
+            "basePriceCents": 125,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/see-refrigerator-one-piece.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "see-refrigerator-one-lbs",
+            "name": "See Refrigerator - One Lbs",
+            "description": "",
+            "basePriceCents": 1299,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/see-refrigerator-one-lbs.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "bengali-sweet-one-piece",
+            "name": "Bengali Sweet - One piece",
+            "description": "",
+            "basePriceCents": 325,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/bengali-sweet-one-piece.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 3
+          }
+        ]
+      },
+      {
+        "id": "drinks",
+        "name": "Drinks",
+        "description": "",
+        "sortOrder": 8,
+        "items": [
+          {
+            "id": "mango-lassi",
+            "name": "Mango Lassi",
+            "description": "Our bestselling smooth, chilled yogurt drink blended with rich Alphonso mango pulp, green cardamom, and a touch of sweetness.",
+            "basePriceCents": 408,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/mango-lassi.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "vegan-mango-lassi",
+            "name": "Vegan Mango Lassi",
+            "description": "Plant-based indulgence crafted with dairy-free cultured coconut yogurt, sweet mango nectar, and aromatic cardamom.",
+            "basePriceCents": 408,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/vegan-mango-lassi.webp",
+            "dietary": [
+              "vegan"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "rose-milk",
+            "name": "Rose Milk",
+            "description": "Delicate and refreshing chilled milk scented with natural Damask rose petal syrup and sweet basil seeds.",
+            "basePriceCents": 408,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/rose-milk.webp",
+            "dietary": [
+              "vegetarian"
+            ],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 3
+          },
+          {
+            "id": "sweet-lassi",
+            "name": "Sweet Lassi",
+            "description": "Traditional artisan churned sweet yogurt elixir flavored with fragrant kewra water and freshly ground cardamom.",
+            "basePriceCents": 408,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/sweet-lassi.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 4
+          },
+          {
+            "id": "salt-lassi",
+            "name": "Salt Lassi",
+            "description": "Cooling savory probiotic drink tempered with Himalayan pink rock salt, roasted crushed cumin, and fresh mint leaves.",
+            "basePriceCents": 399,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu-west-v2/salt-lassi.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 5
+          },
+          {
+            "id": "chai-small",
+            "name": "Chai - Small",
+            "description": "Slow-simmered Assam black tea brewed with fresh crushed ginger root, cracked cardamom pods, cinnamon, and whole milk.",
+            "basePriceCents": 159,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/chai-small.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 6
+          },
+          {
+            "id": "chai-large",
+            "name": "Chai - Large",
+            "description": "Generous 16oz cup of our slow-simmered aromatic masala chai, steeped fresh on the stove all day.",
+            "basePriceCents": 295,
+            "priceStatus": "needs-confirmation",
+            "needsReview": true,
+            "image": "/images/menu/chai-large.webp",
+            "dietary": [],
+            "spicy": false,
+            "allergens": [],
+            "available": true,
+            "sortOrder": 7
+          }
+        ]
+      }
+    ]
+  }
+}

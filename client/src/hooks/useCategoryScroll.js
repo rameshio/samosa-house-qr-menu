@@ -65,6 +65,7 @@ export const useCategoryScroll = (categories, loading, error) => {
 
       observerRef.current = new IntersectionObserver((entries) => {
         if (isClickScrolling.current) return;
+        if (document.body.style.overflow === 'hidden') return;
 
         entries.forEach(entry => {
           if (entry.isIntersecting) {
