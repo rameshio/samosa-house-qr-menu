@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { CategoryIcon } from './icons/CategoryIcon';
+import PressableCategoryButton from './PressableCategoryButton';
 
 const CategoryNavigation = ({ categories, activeCategoryId, onCategoryClick }) => {
   const navRef = useRef(null);
@@ -55,20 +56,13 @@ const CategoryNavigation = ({ categories, activeCategoryId, onCategoryClick }) =
         {categories.map((category) => {
           const isActive = category.id === activeCategoryId;
           return (
-            <button
+            <PressableCategoryButton
               key={category.id}
-              data-id={`cat-tab-${category.id}`}
+              category={category}
+              isActive={isActive}
               onClick={(e) => onCategoryClick && onCategoryClick(e, category.id)}
-              className={`flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 mx-1 rounded-full text-sm font-bold transition-all focus:outline-none focus:ring-2 focus:ring-brand-saffron shrink-0 ${
-                isActive 
-                  ? 'bg-brand-saffron text-white shadow-md transform scale-105' 
-                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-              }`}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              <CategoryIcon category={category.name} className="w-4 h-4" />
-              {category.name}
-            </button>
+              isDrawer={false}
+            />
           );
         })}
       </nav>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DietaryBadge from './DietaryBadge';
 import { formatPriceCents } from '../utils/formatters';
 import MenuCardBorder from './MenuCardBorder';
@@ -6,11 +6,29 @@ import MenuCardBorder from './MenuCardBorder';
 const MenuItemCard = ({ item, onSelect }) => {
   const { name, description, basePriceCents, spicy, dietary, available, image } = item;
 
-  const [imgError, setImgError] = React.useState(false);
+  const [imgError, setImgError] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
+
+  const handlePointerDown = (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    setIsPressed(true);
+  };
+  
+  const handlePointerUp = () => setIsPressed(false);
+  const handlePointerCancel = () => setIsPressed(false);
+  const handlePointerLeave = () => setIsPressed(false);
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
+      setIsPressed(true);
+    }
+  };
+  
+  const handleKeyUp = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setIsPressed(false);
       if (onSelect) onSelect(item, e);
     }
   };
@@ -20,11 +38,22 @@ const MenuItemCard = ({ item, onSelect }) => {
       role="button"
       tabIndex={0}
       onClick={(e) => onSelect && onSelect(item, e)}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerCancel}
+      onPointerLeave={handlePointerLeave}
       onKeyDown={handleKeyDown}
-      className={`group flex flex-col h-full bg-transparent p-2 -m-2 rounded-2xl cursor-pointer transition-all hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-brand-saffron/50 ${!available ? 'opacity-60 grayscale' : ''}`}
+      onKeyUp={handleKeyUp}
+      className={`group/card flex flex-col h-full bg-transparent p-2 -m-2 rounded-2xl cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand-saffron/50 ${!available ? 'opacity-60 grayscale' : ''}`}
       aria-label={`View details for ${name}`}
+      style={{ touchAction: 'pan-x pan-y', WebkitTapHighlightColor: 'transparent' }}
     >
-      <MenuCardBorder className="flex flex-col h-full w-full rounded-2xl">
+      <MenuCardBorder 
+        className={`flex flex-col h-full w-full rounded-2xl transition-all duration-[250ms] ease-out origin-center
+          group-hover/card:bg-gray-50 group-hover/card:shadow-[0_8px_30px_rgba(249,115,22,0.08)] group-hover/card:border-brand-saffron/40
+          ${isPressed ? 'scale-[0.99] shadow-sm motion-reduce:scale-100 bg-gray-50 border-brand-saffron/30' : 'scale-100'}
+        `}
+      >
         {/* Premium Borderless Image Frame */}
         <div className="w-full shrink-0 mb-3 pointer-events-none rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-50 aspect-[4/3]">
           <div className="w-full h-full flex items-center justify-center text-gray-400 relative">
@@ -60,7 +89,7 @@ const MenuItemCard = ({ item, onSelect }) => {
           {!description && <div className="flex-grow"></div>}
           
           {/* Badges */}
-          <div className="flex flex-wrap gap-1.5 mt-2 pt-2 border-t border-gray-100/50">
+          <div className="flex flex-wrap gap-1.5 mt-2 pt-2 border-t border-gray-100/50 group-hover/card:border-brand-saffron/20 transition-colors duration-[250ms]">
             {spicy && <DietaryBadge type="spicy" />}
             {dietary && dietary.map(d => <DietaryBadge key={d} type={d} />)}
             {(!dietary || dietary.filter(d => ['vegan', 'glutenfree', 'dairyfree'].includes(d.toLowerCase())).length === 0) && (

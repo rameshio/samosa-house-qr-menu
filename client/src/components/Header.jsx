@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CategoryIcon } from './icons/CategoryIcon';
+import PressableCategoryButton from './PressableCategoryButton';
 
 const Header = ({ categories = [], activeCategoryId, onCategoryClick }) => {
   const [imageError, setImageError] = useState(false);
@@ -129,19 +130,13 @@ const Header = ({ categories = [], activeCategoryId, onCategoryClick }) => {
           {categories.map((category) => {
             const isActive = category.id === activeCategoryId;
             return (
-              <button
+              <PressableCategoryButton
                 key={category.id}
+                category={category}
+                isActive={isActive}
                 onClick={(e) => handleCategorySelect(e, category.id)}
-                className={`text-left px-4 py-3 rounded-xl font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-brand-saffron flex items-center gap-3 ${
-                  isActive 
-                    ? 'bg-brand-saffron text-white shadow-sm' 
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
-                }`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                <CategoryIcon category={category.name} className="w-5 h-5 shrink-0 opacity-80" />
-                {category.name}
-              </button>
+                isDrawer={true}
+              />
             );
           })}
 
