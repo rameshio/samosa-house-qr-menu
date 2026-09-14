@@ -7,9 +7,4 @@ describe('DietaryBadge', () => {
     render(<DietaryBadge type="vegan" />);
     expect(screen.getByText('Vegan')).toBeInTheDocument();
   });
-
-  it('renders vegetarian badge correctly', () => {
-    render(<DietaryBadge type="vegetarian" />);
-    expect(screen.getByText('Vegetarian')).toBeInTheDocument();
-  });
 });

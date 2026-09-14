@@ -60,20 +60,6 @@ const DietaryBadge = ({ type }) => {
     );
   }
 
-  if (normalizedType === 'vegetarian') {
-    return (
-      <span 
-        className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-semibold rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200"
-        title="Vegetarian"
-      >
-        <svg className="w-3 h-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-        </svg>
-        Vegetarian
-      </span>
-    );
-  }
-
   if (normalizedType === 'ask') {
     return (
       <span 

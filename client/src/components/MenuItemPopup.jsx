@@ -115,7 +115,7 @@ const MenuItemPopup = ({ item, category, onClose }) => {
           <div className="flex flex-wrap gap-2 mb-6">
             {item.spicy && <DietaryBadge type="spicy" />}
             {item.dietary && item.dietary.map(d => <DietaryBadge key={d} type={d} />)}
-            {(!item.dietary || item.dietary.filter(d => ['vegan', 'vegetarian', 'glutenfree', 'dairyfree'].includes(d.toLowerCase())).length === 0) && (
+            {(!item.dietary || item.dietary.filter(d => ['vegan', 'glutenfree', 'dairyfree'].includes(d.toLowerCase())).length === 0) && (
               <DietaryBadge type="ask" />
             )}
             {!item.available && (

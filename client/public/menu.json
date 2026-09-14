@@ -24,7 +24,7 @@
             "image": "/images/menu-west-v2/samosa.webp",
             "dietary": [
               "houseFavorite",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -41,7 +41,7 @@
             "image": "/images/menu-west-v2/spinach-pakora.webp",
             "dietary": [
               "glutenFree",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -58,7 +58,7 @@
             "image": "/images/menu-west-v2/cauliflower-pakora.webp",
             "dietary": [
               "glutenFree",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -88,7 +88,7 @@
             "needsReview": true,
             "image": "/images/menu/dahi-wada.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -119,7 +119,7 @@
             "image": "/images/menu-west-v2/sabudana-wada.webp",
             "dietary": [
               "glutenFree",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -135,7 +135,7 @@
             "needsReview": true,
             "image": "/images/menu-west-v2/dhokla.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -151,7 +151,7 @@
             "needsReview": true,
             "image": "/images/menu/kachori.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -191,7 +191,7 @@
             "needsReview": true,
             "image": "/images/menu-west-v2/bhel-puri.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -207,7 +207,7 @@
             "needsReview": true,
             "image": "/images/menu-west-v2/papri-chaat.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -251,7 +251,7 @@
             "needsReview": true,
             "image": "/images/menu/aloo-tikki-chaat.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -267,7 +267,7 @@
             "needsReview": true,
             "image": "/images/menu/kachori-chaat.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -342,7 +342,7 @@
             "image": "/images/menu-west-v2/chana-bhatura.webp",
             "dietary": [
               "houseFavorite",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -358,7 +358,7 @@
             "needsReview": true,
             "image": "/images/menu-west-v2/aloo-poori.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -375,7 +375,7 @@
             "image": "/images/menu-west-v2/pav-bhaji.webp",
             "dietary": [
               "houseFavorite",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -469,7 +469,7 @@
             "needsReview": true,
             "image": "/images/menu-west-v2/paper-dosa.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -487,7 +487,7 @@
             "dietary": [
               "glutenFree",
               "houseFavorite",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -503,7 +503,7 @@
             "needsReview": true,
             "image": "/images/menu-west-v2/mysore-masala-dosa.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": true,
             "allergens": [],
@@ -534,7 +534,7 @@
             "image": "/images/menu/onion-chilli-uttapam.webp",
             "dietary": [
               "glutenFree",
-              "vegetarian"
+              "vegan"
             ],
             "spicy": true,
             "allergens": [],
@@ -671,7 +671,9 @@
             "priceStatus": "needs-confirmation",
             "needsReview": true,
             "image": "/images/menu-west-v2/mango-lassi.webp",
-            "dietary": [],
+            "dietary": [
+              "vegan"
+            ],
             "spicy": false,
             "allergens": [],
             "available": true,
@@ -702,7 +704,7 @@
             "needsReview": true,
             "image": "/images/menu-west-v2/rose-milk.webp",
             "dietary": [
-              "vegetarian"
+              "vegan"
             ],
             "spicy": false,
             "allergens": [],
@@ -717,7 +719,9 @@
             "priceStatus": "needs-confirmation",
             "needsReview": true,
             "image": "/images/menu-west-v2/sweet-lassi.webp",
-            "dietary": [],
+            "dietary": [
+              "vegan"
+            ],
             "spicy": false,
             "allergens": [],
             "available": true,
@@ -731,7 +735,9 @@
             "priceStatus": "needs-confirmation",
             "needsReview": true,
             "image": "/images/menu-west-v2/salt-lassi.webp",
-            "dietary": [],
+            "dietary": [
+              "vegan"
+            ],
             "spicy": false,
             "allergens": [],
             "available": true,
@@ -745,7 +751,9 @@
             "priceStatus": "needs-confirmation",
             "needsReview": true,
             "image": "/images/menu/chai-small.webp",
-            "dietary": [],
+            "dietary": [
+              "vegan"
+            ],
             "spicy": false,
             "allergens": [],
             "available": true,
@@ -759,7 +767,9 @@
             "priceStatus": "needs-confirmation",
             "needsReview": true,
             "image": "/images/menu/chai-large.webp",
-            "dietary": [],
+            "dietary": [
+              "vegan"
+            ],
             "spicy": false,
             "allergens": [],
             "available": true,

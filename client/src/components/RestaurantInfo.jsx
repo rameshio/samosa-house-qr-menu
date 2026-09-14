@@ -17,7 +17,7 @@ const RestaurantInfo = () => {
               About the Restaurant
             </h3>
             <p className="text-gray-600 leading-relaxed text-sm">
-              Established in 1979, Samosa House is a landmark destination for Indian vegetarian and vegan cuisine in Culver City. We are dedicated to serving traditional favorites including samosas, chaat, dosas, and daily fresh curries.
+              Established in 1979, Samosa House is a landmark destination for Indian vegan cuisine in Culver City. We are dedicated to serving traditional favorites including samosas, chaat, dosas, and daily fresh curries.
             </p>
           </div>
 

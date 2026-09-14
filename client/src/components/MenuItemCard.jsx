@@ -63,7 +63,7 @@ const MenuItemCard = ({ item, onSelect }) => {
           <div className="flex flex-wrap gap-1.5 mt-2 pt-2 border-t border-gray-100/50">
             {spicy && <DietaryBadge type="spicy" />}
             {dietary && dietary.map(d => <DietaryBadge key={d} type={d} />)}
-            {(!dietary || dietary.filter(d => ['vegan', 'vegetarian', 'glutenfree', 'dairyfree'].includes(d.toLowerCase())).length === 0) && (
+            {(!dietary || dietary.filter(d => ['vegan', 'glutenfree', 'dairyfree'].includes(d.toLowerCase())).length === 0) && (
               <DietaryBadge type="ask" />
             )}
             {!available && (
